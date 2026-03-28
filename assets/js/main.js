@@ -3,7 +3,7 @@
  * نسخه: 2.0 | تاریخ: ۲۰۲۶
  */
 
-// ========== تنظیمات اولیه ==========
+// ========== تنظیمات  اولیه ==========
 document.addEventListener('DOMContentLoaded', () => {
     initPreloader();
     initTheme();
