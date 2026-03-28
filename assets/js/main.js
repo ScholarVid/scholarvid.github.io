@@ -1,6 +1,6 @@
 /**
  * اسکالروید - اسکریپت‌های اصلی
- * نسخه نهایی - بهینه‌شده
+ * نسخه نهایی ساده‌شده
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initSmoothScroll();
     initHeaderScroll();
-    initScholarshipFilter();
     initBackToTop();
     initModal();
     initToast();
@@ -28,13 +27,11 @@ function initPreloader() {
 function initTheme() {
     const toggle = document.getElementById('themeToggle');
     const icon = toggle.querySelector('i');
-    const tooltip = toggle.querySelector('.tooltip');
     
     const savedTheme = localStorage.getItem('scholarvid-theme');
     if (savedTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
         icon.className = 'fas fa-sun';
-        tooltip.textContent = 'حالت روشن';
     }
     
     toggle.addEventListener('click', () => {
@@ -42,12 +39,10 @@ function initTheme() {
         if (isDark) {
             document.documentElement.removeAttribute('data-theme');
             icon.className = 'fas fa-moon';
-            tooltip.textContent = 'حالت تاریک';
             localStorage.setItem('scholarvid-theme', 'light');
         } else {
             document.documentElement.setAttribute('data-theme', 'dark');
             icon.className = 'fas fa-sun';
-            tooltip.textContent = 'حالت روشن';
             localStorage.setItem('scholarvid-theme', 'dark');
         }
     });
@@ -79,7 +74,7 @@ function initSmoothScroll() {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                const headerOffset = 80;
+                const headerOffset = 70;
                 const elementPosition = target.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                 window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
@@ -92,84 +87,7 @@ function initSmoothScroll() {
 function initHeaderScroll() {
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-}
-
-// ========== Scholarship Filter & Search ==========
-function initScholarshipFilter() {
-    const cards = document.querySelectorAll('.scholarship-card');
-    const searchInput = document.getElementById('searchInput');
-    const levelFilter = document.getElementById('levelFilter');
-    const sortFilter = document.getElementById('sortFilter');
-    const footerFilters = document.querySelectorAll('.footer-links a[data-filter]');
-    
-    function filterScholarships(country, searchTerm, level, sortBy) {
-        const terms = searchTerm.toLowerCase().split(' ').filter(t => t);
-        
-        cards.forEach(card => {
-            const cardCountry = card.dataset.country;
-            const cardLevel = card.dataset.level;
-            const cardText = card.textContent.toLowerCase();
-            
-            const matchCountry = !country || country === 'all' || cardCountry === country;
-            const matchSearch = terms.length === 0 || terms.every(term => cardText.includes(term));
-            const matchLevel = !level || cardLevel.includes(level);
-            
-            if (matchCountry && matchSearch && matchLevel) {
-                card.style.display = 'flex';
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 50);
-            } else {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                setTimeout(() => card.style.display = 'none', 250);
-            }
-        });
-        
-        // Sort
-        if (sortBy && sortBy !== 'newest') {
-            const grid = document.getElementById('scholarshipsGrid');
-            const visible = Array.from(cards).filter(c => c.style.display !== 'none');
-            
-            if (sortBy === 'deadline') {
-                visible.sort((a, b) => {
-                    const dateA = a.querySelector('.meta-item:last-child')?.textContent || '';
-                    const dateB = b.querySelector('.meta-item:last-child')?.textContent || '';
-                    return dateA.localeCompare(dateB, 'fa');
-                });
-            }
-            visible.forEach(card => grid.appendChild(card));
-        }
-    }
-    
-    // Footer category filters
-    footerFilters.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const filter = link.dataset.filter;
-            filterScholarships(filter, searchInput?.value || '', levelFilter?.value || '', sortFilter?.value || 'newest');
-            document.querySelector('#scholarships')?.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-    
-    searchInput?.addEventListener('input', () => {
-        const country = document.querySelector('.footer-links a.active')?.dataset.filter || 'all';
-        filterScholarships(country, searchInput.value, levelFilter?.value || '', sortFilter?.value || 'newest');
-    });
-    
-    levelFilter?.addEventListener('change', () => {
-        filterScholarships('all', searchInput?.value || '', levelFilter.value, sortFilter?.value || 'newest');
-    });
-    
-    sortFilter?.addEventListener('change', () => {
-        filterScholarships('all', searchInput?.value || '', levelFilter?.value || '', sortFilter.value);
+        header.classList.toggle('scrolled', window.pageYOffset > 50);
     });
 }
 
@@ -185,11 +103,9 @@ function initBackToTop() {
 // ========== Modal ==========
 function initModal() {
     const modal = document.getElementById('scholarshipModal');
-    
     modal?.addEventListener('click', (e) => {
         if (e.target.classList.contains('modal-overlay')) closeModal();
     });
-    
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeModal();
     });
@@ -305,7 +221,6 @@ function openModal(id) {
             <img src="${item.flag}" alt="${item.country}" class="country-flag-img">
             <h3>${item.title}</h3>
         </div>
-        
         <div class="modal-details">
             <div class="detail-item">
                 <i class="fas fa-map-marker-alt"></i>
@@ -324,21 +239,18 @@ function openModal(id) {
                 <span><strong>رشته‌ها:</strong> ${item.fields}</span>
             </div>
         </div>
-        
         <div class="modal-benefits">
             <h4><i class="fas fa-gift"></i> مزایای بورسیه:</h4>
             <ul>
                 ${item.benefits.map(b => `<li><i class="fas fa-check-circle"></i> ${b}</li>`).join('')}
             </ul>
         </div>
-        
         <div class="modal-requirements">
             <h4><i class="fas fa-clipboard-list"></i> شرایط و مدارک:</h4>
             <ul>
                 ${item.requirements.map(r => `<li><i class="fas fa-arrow-left"></i> ${r}</li>`).join('')}
             </ul>
         </div>
-        
         <div class="modal-footer">
             <a href="${item.applyUrl}" target="_blank" class="btn btn-primary btn-lg">
                 <i class="fas fa-paper-plane"></i>
@@ -366,7 +278,6 @@ function initToast() {
         const icon = toast.querySelector('i');
         
         toastMessage.textContent = message;
-        
         if (type === 'error') {
             icon.className = 'fas fa-exclamation-circle';
             icon.style.color = 'var(--danger)';
@@ -376,18 +287,16 @@ function initToast() {
             icon.style.color = 'var(--success)';
             toast.style.borderRightColor = 'var(--success)';
         }
-        
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 4000);
     };
 }
 
-// ========== Form Handlers ==========
+// ========== Form Handler (در صورت نیاز) ==========
 function sendContact(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button[type="submit"]');
     const original = btn.innerHTML;
-    
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> در حال ارسال...';
     btn.disabled = true;
     
