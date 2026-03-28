@@ -1,5 +1,5 @@
 /* ========================================
-   اسکالروید - استایل‌های حرفه‌ای نسخه نهایی
+   اسکالر وید - استایل‌های حرفه‌ای نسخه نهایی
    فونت: Vazirmatn | تم: تاریک/روشن کامل
    ======================================== */
 
@@ -351,8 +351,15 @@ ul { list-style: none; }
 .card-benefits i { color: var(--success); font-size: 0.9rem; }
 
 .card-actions {
-    display: flex; gap: var(--spacing-sm); margin-top: auto;
-    padding-top: var(--spacing-md); border-top: 1px solid var(--border);
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: auto;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border);
+}
+.details-btn {
+    width: 100%;
+    justify-content: center;
 }
 
 /* ========== Features ========== */
@@ -384,7 +391,7 @@ ul { list-style: none; }
 
 /* ========== About ========== */
 .about-grid {
-    display: grid; grid-template-columns: 1.2fr 1fr;
+    display: grid; grid-template-columns: 1.5fr 0.8fr;
     gap: var(--spacing-2xl); align-items: center;
 }
 .about-content h2 {
@@ -408,9 +415,18 @@ ul { list-style: none; }
 }
 
 .about-image {
-    position: relative; min-height: 300px;
-    background: var(--gradient-primary); border-radius: var(--radius-lg);
-    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    min-height: 100px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+.about-image {
+    max-width: 200px;
+    margin: 0 auto;
 }
 .about-image::before {
     content: ''; position: absolute; inset: 0;
