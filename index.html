@@ -3,63 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اسکالروید | مرجع تخصصی بورسیه‌های تحصیلی جهان عرب و بین‌الملل</title>
+    <title>اسکالروید | مرجع تخصصی بورسیه‌های تحصیلی</title>
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="اسکالروید - مرجع معتبر بورسیه‌های تحصیلی عربستان سعودی، کشورهای عربی و بین‌المللی. ثبت‌نام رایگان، راهنمایی تخصصی و پشتیبانی تا لحظه پذیرش.">
-    <meta name="keywords" content="بورسیه تحصیلی, عربستان سعودی, بورسیه عربی, تحصیل رایگان, اسکالروید, scholarship">
-    <meta name="author" content="Scholarvid">
-    <meta name="robots" content="index, follow">
+    <!-- SEO -->
+    <meta name="description" content="مرجع معتبر بورسیه‌های تحصیلی عربستان سعودی و کشورهای عربی. راهنمایی ثبت‌نام رایگان و پشتیبانی تخصصی.">
+    <meta name="keywords" content="بورسیه تحصیلی, عربستان سعودی, تحصیل رایگان, اسکالروید">
     
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="اسکالروید | بورسیه‌های تحصیلی معتبر">
-    <meta property="og:description" content="فرصت‌های طلایی تحصیل رایگان در جهان عرب و بین‌الملل">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://scholarvid.github.io">
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Main CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
     
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
-      "name": "اسکالروید",
-      "url": "https://scholarvid.github.io",
-      "description": "مرجع تخصصی بورسیه‌های تحصیلی جهان عرب و بین‌الملل",
-      "sameAs": ["https://t.me/scholarvid"]
-    }
-    </script>
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
 </head>
 <body>
     <!-- Preloader -->
     <div id="preloader">
         <div class="loader">
-            <div class="spinner"></div>
-            <p>در حال بارگذاری اسکالروید...</p>
+            <i class="fas fa-graduation-cap loader-icon"></i>
+            <p>در حال بارگذاری...</p>
         </div>
     </div>
 
     <!-- Theme Toggle -->
     <button id="themeToggle" class="theme-toggle" aria-label="تغییر تم">
         <i class="fas fa-moon"></i>
+        <span class="tooltip">حالت تاریک</span>
     </button>
 
     <!-- Header -->
     <header id="header">
         <div class="container header-inner">
             <a href="#" class="logo">
-                <span class="logo-icon">🎓</span>
+                <i class="fas fa-graduation-cap logo-icon"></i>
                 <div class="logo-text">
                     <h1>اسکالروید</h1>
                     <span>ScholarVid</span>
@@ -69,16 +48,22 @@
             <nav class="nav-desktop">
                 <a href="#home" class="nav-link active">خانه</a>
                 <a href="#scholarships" class="nav-link">بورسیه‌ها</a>
-                <a href="#categories" class="nav-link">دسته‌بندی</a>
-                <a href="#about" class="nav-link">درباره ما</a>
+                <a href="#about" class="nav-link">درباره</a>
                 <a href="#contact" class="nav-link">تماس</a>
             </nav>
             
             <div class="header-actions">
-                <a href="https://t.me/scholarvid" target="_blank" class="btn btn-telegram">
-                    <i class="fab fa-telegram-plane"></i>
-                    <span>کانال تلگرام</span>
-                </a>
+                <div class="social-links-header">
+                    <a href="https://t.me/Saudi_Scholarships" target="_blank" class="social-btn telegram" title="کانال تلگرام">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@ScholarVid" target="_blank" class="social-btn youtube" title="یوتیوب">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.instagram.com/scholarvid/" target="_blank" class="social-btn instagram" title="اینستاگرام">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
                 <button class="mobile-menu-btn" aria-label="منو">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -87,109 +72,60 @@
         
         <!-- Mobile Menu -->
         <div class="mobile-menu">
-            <a href="#home" class="mobile-nav-link">🏠 خانه</a>
-            <a href="#scholarships" class="mobile-nav-link">📚 بورسیه‌ها</a>
-            <a href="#categories" class="mobile-nav-link">🗂️ دسته‌بندی</a>
-            <a href="#about" class="mobile-nav-link">👤 درباره ما</a>
-            <a href="#contact" class="mobile-nav-link">📞 تماس</a>
-            <a href="https://t.me/scholarvid" target="_blank" class="mobile-nav-link telegram">📢 کانال تلگرام</a>
+            <a href="#home" class="mobile-nav-link"><i class="fas fa-home"></i> خانه</a>
+            <a href="#scholarships" class="mobile-nav-link"><i class="fas fa-book"></i> بورسیه‌ها</a>
+            <a href="#about" class="mobile-nav-link"><i class="fas fa-info-circle"></i> درباره ما</a>
+            <a href="#contact" class="mobile-nav-link"><i class="fas fa-envelope"></i> تماس</a>
+            <div class="mobile-social">
+                <a href="https://t.me/Saudi_Scholarships" target="_blank"><i class="fab fa-telegram-plane"></i> تلگرام</a>
+                <a href="https://www.youtube.com/@ScholarVid" target="_blank"><i class="fab fa-youtube"></i> یوتیوب</a>
+                <a href="https://www.instagram.com/scholarvid/" target="_blank"><i class="fab fa-instagram"></i> اینستاگرام</a>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-bg">
-            <div class="hero-particles"></div>
-        </div>
+        <div class="hero-bg"></div>
         <div class="container hero-content">
             <span class="hero-badge">
-                <i class="fas fa-sparkles"></i>
-                بیش از ۵۰۰ دانشجوی موفق
+                <i class="fas fa-certificate"></i>
+                بورسیه‌های معتبر و تأییدشده
             </span>
             <h1 class="hero-title">
                 <span class="gradient-text">تحصیل رایگان</span> 
-                <br>در برترین دانشگاه‌های 
+                <br>در دانشگاه‌های برتر 
                 <span class="highlight">جهان عرب</span>
             </h1>
             <p class="hero-description">
-                اسکالروید همراه تخصصی شما برای دریافت بورسیه‌های معتبر تحصیلی. 
-                اطلاعات به‌روز، راهنمایی قدم‌به‌قدم و پشتیبانی تا لحظه پذیرش.
+                اسکالروید همراه تخصصی شما برای دریافت بورسیه‌های تحصیلی معتبر. 
+                اطلاعات دقیق، راهنمایی گام‌به‌گام و پشتیبانی تا لحظه پذیرش.
             </p>
             <div class="hero-buttons">
                 <a href="#scholarships" class="btn btn-primary btn-lg">
                     <i class="fas fa-search"></i>
                     مشاهده بورسیه‌ها
                 </a>
-                <a href="https://t.me/scholarvid" target="_blank" class="btn btn-outline btn-lg">
+                <a href="https://t.me/Saudi_Scholarships" target="_blank" class="btn btn-outline btn-lg">
                     <i class="fab fa-telegram-plane"></i>
-                    عضویت در کانال
+                    کانال تلگرام
                 </a>
             </div>
-            <div class="hero-stats">
-                <div class="stat-card">
-                    <span class="stat-number" data-target="500">0</span>
-                    <span class="stat-label">دانشجوی ثبت‌نام‌شده</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number" data-target="50">0</span>
-                    <span class="stat-label">بورسیه فعال</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number" data-target="15">0</span>
-                    <span class="stat-label">کشور تحت پوشش</span>
-                </div>
-            </div>
         </div>
-        <div class="hero-scroll">
-            <a href="#scholarships" class="scroll-indicator">
-                <i class="fas fa-chevron-down"></i>
-            </a>
-        </div>
-    </section>
-
-    <!-- Categories Section -->
-    <section id="categories" class="categories">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">دسته‌بندی بورسیه‌ها</h2>
-                <p class="section-subtitle">بورسیه‌ها را بر اساس کشور و نوع جستجو کنید</p>
-            </div>
-            <div class="category-grid">
-                <button class="category-card active" data-filter="all">
-                    <i class="fas fa-globe"></i>
-                    <span>همه بورسیه‌ها</span>
-                    <span class="category-count">۵۰+</span>
-                </button>
-                <button class="category-card" data-filter="saudi">
-                    <i class="fas fa-kaaba"></i>
-                    <span>عربستان سعودی</span>
-                    <span class="category-count">۲۰+</span>
-                </button>
-                <button class="category-card" data-filter="uae">
-                    <i class="fas fa-building"></i>
-                    <span>امارات متحده</span>
-                    <span class="category-count">۱۰+</span>
-                </button>
-                <button class="category-card" data-filter="qatar">
-                    <i class="fas fa-mosque"></i>
-                    <span>قطر</span>
-                    <span class="category-count">۸+</span>
-                </button>
-                <button class="category-card" data-filter="international">
-                    <i class="fas fa-plane"></i>
-                    <span>بین‌المللی</span>
-                    <span class="category-count">۱۵+</span>
-                </button>
-            </div>
-        </div>
+        <a href="#scholarships" class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </a>
     </section>
 
     <!-- Scholarships Section -->
     <section id="scholarships" class="scholarships">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">📚 بورسیه‌های فعال</h2>
-                <p class="section-subtitle">فرصت‌های تحصیلی به‌روز و معتبر</p>
+                <h2 class="section-title">
+                    <i class="fas fa-book-open"></i>
+                    بورسیه‌های فعال
+                </h2>
+                <p class="section-subtitle">فرصت‌های تحصیلی به‌روز و معتبر برای دانشجویان مستعد</p>
             </div>
             
             <!-- Search & Filter -->
@@ -201,35 +137,33 @@
                 <div class="filter-options">
                     <select id="levelFilter">
                         <option value="">همه مقاطع</option>
-                        <option value="bachelor">کارشناسی</option>
-                        <option value="master">کارشناسی ارشد</option>
+                        <option value="bachelor">لیسانس</option>
+                        <option value="master">ماستری</option>
                         <option value="phd">دکترا</option>
                     </select>
                     <select id="sortFilter">
                         <option value="newest">جدیدترین</option>
                         <option value="deadline">مهلت نزدیک</option>
-                        <option value="popular">محبوب‌ترین</option>
                     </select>
                 </div>
             </div>
             
             <!-- Scholarships Grid -->
             <div id="scholarshipsGrid" class="scholarships-grid">
-                <!-- کارت بورسیه ۱ -->
-                <article class="scholarship-card" data-category="saudi" data-level="bachelor,master,phd">
+                
+                <!-- کارت بورسیه ۱: عربستان سعودی -->
+                <article class="scholarship-card" data-country="saudi" data-level="bachelor,master,phd">
                     <div class="card-badge featured">
                         <i class="fas fa-star"></i>
                         ویژه
                     </div>
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400" alt="دانشگاه ملک سعود">
-                        <div class="card-overlay">
-                            <span class="country-flag">🇸🇦 عربستان</span>
-                        </div>
+                    <div class="card-flag">
+                        <img src="https://flagcdn.com/w320/sa.png" alt="عربستان سعودی" class="country-flag-img">
+                        <span class="country-name">عربستان سعودی</span>
                     </div>
                     <div class="card-content">
                         <div class="card-meta">
-                            <span class="meta-item"><i class="fas fa-graduation-cap"></i> همه مقاطع</span>
+                            <span class="meta-item"><i class="fas fa-graduation-cap"></i> لیسانس، ماستری، دکترا</span>
                             <span class="meta-item"><i class="fas fa-clock"></i> ۳۰ اپریل ۲۰۲۶</span>
                         </div>
                         <h3 class="card-title">بورسیه دانشگاه ملک سعود</h3>
@@ -237,34 +171,32 @@
                         <ul class="card-benefits">
                             <li><i class="fas fa-check-circle"></i> پوشش ۱۰۰٪ شهریه</li>
                             <li><i class="fas fa-check-circle"></i> حقوق ماهیانه تا ۳۰۰۰ ریال</li>
-                            <li><i class="fas fa-check-circle"></i> اسکان رایگان و بیمه</li>
+                            <li><i class="fas fa-check-circle"></i> اسکان و بیمه رایگان</li>
                         </ul>
                         <div class="card-actions">
                             <button class="btn btn-sm btn-outline" onclick="openModal('ksu')">
                                 <i class="fas fa-eye"></i> جزئیات
                             </button>
-                            <a href="https://t.me/scholarvid" target="_blank" class="btn btn-sm btn-primary">
+                            <a href="https://t.me/Saudi_Scholarships" target="_blank" class="btn btn-sm btn-primary">
                                 <i class="fas fa-paper-plane"></i> ثبت‌نام
                             </a>
                         </div>
                     </div>
                 </article>
 
-                <!-- کارت بورسیه ۲ -->
-                <article class="scholarship-card" data-category="uae" data-level="master,phd">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=400" alt="دانشگاه امارات">
-                        <div class="card-overlay">
-                            <span class="country-flag">🇦🇪 امارات</span>
-                        </div>
+                <!-- کارت بورسیه ۲: امارات -->
+                <article class="scholarship-card" data-country="uae" data-level="master,phd">
+                    <div class="card-flag">
+                        <img src="https://flagcdn.com/w320/ae.png" alt="امارات متحده" class="country-flag-img">
+                        <span class="country-name">امارات متحده</span>
                     </div>
                     <div class="card-content">
                         <div class="card-meta">
-                            <span class="meta-item"><i class="fas fa-graduation-cap"></i> ارشد و دکترا</span>
+                            <span class="meta-item"><i class="fas fa-graduation-cap"></i> ماستری، دکترا</span>
                             <span class="meta-item"><i class="fas fa-clock"></i> ۱۵ می ۲۰۲۶</span>
                         </div>
-                        <h3 class="card-title">بورسیه دانشگاه امارات متحده</h3>
-                        <p class="card-excerpt">فرصت تحصیل در یکی از برترین دانشگاه‌های خاورمیانه با رتبه جهانی و امکانات پیشرفته</p>
+                        <h3 class="card-title">بورسیه دانشگاه امارات</h3>
+                        <p class="card-excerpt">فرصت تحصیل در یکی از برترین دانشگاه‌های خاورمیانه با رتبه جهانی و امکانات پژوهشی پیشرفته</p>
                         <ul class="card-benefits">
                             <li><i class="fas fa-check-circle"></i> معافیت کامل از شهریه</li>
                             <li><i class="fas fa-check-circle"></i> کمک هزینه زندگی ماهیانه</li>
@@ -274,59 +206,55 @@
                             <button class="btn btn-sm btn-outline" onclick="openModal('uae')">
                                 <i class="fas fa-eye"></i> جزئیات
                             </button>
-                            <a href="https://t.me/scholarvid" target="_blank" class="btn btn-sm btn-primary">
+                            <a href="https://t.me/Saudi_Scholarships" target="_blank" class="btn btn-sm btn-primary">
                                 <i class="fas fa-paper-plane"></i> ثبت‌نام
                             </a>
                         </div>
                     </div>
                 </article>
 
-                <!-- کارت بورسیه ۳ -->
-                <article class="scholarship-card" data-category="international" data-level="bachelor,master">
+                <!-- کارت بورسیه ۳: ترکیه -->
+                <article class="scholarship-card" data-country="international" data-level="bachelor,master">
                     <div class="card-badge urgent">
                         <i class="fas fa-exclamation-circle"></i>
                         مهلت نزدیک
                     </div>
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf2f26f?w=400" alt="بورسیه ترکیه">
-                        <div class="card-overlay">
-                            <span class="country-flag">🇹🇷 ترکیه</span>
-                        </div>
+                    <div class="card-flag">
+                        <img src="https://flagcdn.com/w320/tr.png" alt="ترکیه" class="country-flag-img">
+                        <span class="country-name">ترکیه</span>
                     </div>
                     <div class="card-content">
                         <div class="card-meta">
-                            <span class="meta-item"><i class="fas fa-graduation-cap"></i> کارشناسی و ارشد</span>
+                            <span class="meta-item"><i class="fas fa-graduation-cap"></i> لیسانس، ماستری</span>
                             <span class="meta-item"><i class="fas fa-clock"></i> ۱ ژوئن ۲۰۲۶</span>
                         </div>
-                        <h3 class="card-title">بورسیه دولت ترکیه (Türkiye Bursları)</h3>
+                        <h3 class="card-title">بورسیه دولت ترکیه</h3>
                         <p class="card-excerpt">برنامه بورسیه جامع دولت ترکیه برای دانشجویان بین‌المللی در بیش از ۱۵۰ دانشگاه معتبر</p>
                         <ul class="card-benefits">
                             <li><i class="fas fa-check-circle"></i> تحصیل رایگان + حقوق ماهیانه</li>
                             <li><i class="fas fa-check-circle"></i> اسکان دانشجویی رایگان</li>
-                            <li><i class="fas fa-check-circle"></i> بلیط رفت و برگشت + دوره زبان</li>
+                            <li><i class="fas fa-check-circle"></i> بلیط رفت‌وبرگشت + دوره زبان</li>
                         </ul>
                         <div class="card-actions">
                             <button class="btn btn-sm btn-outline" onclick="openModal('turkey')">
                                 <i class="fas fa-eye"></i> جزئیات
                             </button>
-                            <a href="https://t.me/scholarvid" target="_blank" class="btn btn-sm btn-primary">
+                            <a href="https://t.me/Saudi_Scholarships" target="_blank" class="btn btn-sm btn-primary">
                                 <i class="fas fa-paper-plane"></i> ثبت‌نام
                             </a>
                         </div>
                     </div>
                 </article>
 
-                <!-- کارت بورسیه ۴ -->
-                <article class="scholarship-card" data-category="qatar" data-level="master,phd">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=400" alt="دانشگاه قطر">
-                        <div class="card-overlay">
-                            <span class="country-flag">🇶🇦 قطر</span>
-                        </div>
+                <!-- کارت بورسیه ۴: قطر -->
+                <article class="scholarship-card" data-country="qatar" data-level="master,phd">
+                    <div class="card-flag">
+                        <img src="https://flagcdn.com/w320/qa.png" alt="قطر" class="country-flag-img">
+                        <span class="country-name">قطر</span>
                     </div>
                     <div class="card-content">
                         <div class="card-meta">
-                            <span class="meta-item"><i class="fas fa-graduation-cap"></i> ارشد و دکترا</span>
+                            <span class="meta-item"><i class="fas fa-graduation-cap"></i> ماستری، دکترا</span>
                             <span class="meta-item"><i class="fas fa-clock"></i> ۲۰ می ۲۰۲۶</span>
                         </div>
                         <h3 class="card-title">بورسیه دانشگاه قطر</h3>
@@ -340,20 +268,13 @@
                             <button class="btn btn-sm btn-outline" onclick="openModal('qatar')">
                                 <i class="fas fa-eye"></i> جزئیات
                             </button>
-                            <a href="https://t.me/scholarvid" target="_blank" class="btn btn-sm btn-primary">
+                            <a href="https://t.me/Saudi_Scholarships" target="_blank" class="btn btn-sm btn-primary">
                                 <i class="fas fa-paper-plane"></i> ثبت‌نام
                             </a>
                         </div>
                     </div>
                 </article>
-            </div>
-            
-            <!-- Load More -->
-            <div class="load-more">
-                <button id="loadMoreBtn" class="btn btn-outline">
-                    <i class="fas fa-plus"></i>
-                    نمایش بورسیه‌های بیشتر
-                </button>
+
             </div>
         </div>
     </section>
@@ -362,8 +283,10 @@
     <section class="features">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">چرا اسکالروید؟</h2>
-                <p class="section-subtitle">خدمات منحصر به فرد برای موفقیت شما</p>
+                <h2 class="section-title">
+                    <i class="fas fa-lightbulb"></i>
+                    چرا اسکالروید؟
+                </h2>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
@@ -378,91 +301,22 @@
                         <i class="fas fa-hands-helping"></i>
                     </div>
                     <h3>پشتیبانی تخصصی</h3>
-                    <p>راهنمایی قدم‌به‌قدم از شروع ثبت‌نام تا دریافت پذیرش نهایی</p>
+                    <p>راهنمایی گام‌به‌گام از شروع ثبت‌نام تا دریافت پذیرش نهایی</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-file-alt"></i>
                     </div>
                     <h3>کمک در تهیه مدارک</h3>
-                    <p>راهنمایی برای نوشتن انگیزه‌نامه، رزومه و آماده‌سازی مدارک مورد نیاز</p>
+                    <p>راهنمایی برای نوشتن انگیزه‌نامه، رزومه و آماده‌سازی مدارک</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>جامعه دانشجویی</h3>
-                    <p>ارتباط با دانشجویان موفق و تبادل تجربه در کانال تلگرام اسکالروید</p>
+                    <p>ارتباط با دانشجویان موفق در کانال تلگرام اسکالروید</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">نظرات دانشجویان موفق</h2>
-                <p class="section-subtitle">تجربیات واقعی کسانی که با اسکالروید موفق شدند</p>
-            </div>
-            <div class="testimonials-slider">
-                <div class="testimonial-card">
-                    <div class="testimonial-avatar">
-                        <img src="https://ui-avatars.com/api/?name=محمد+احمدی&background=3498db&color=fff" alt="محمد">
-                    </div>
-                    <div class="testimonial-content">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-text">"با راهنمایی اسکالروید موفق شدم بورسیه دانشگاه ملک سعود را دریافت کنم. پشتیبانی عالی و اطلاعات دقیق واقعاً مسیر را هموار کرد!"</p>
-                        <div class="testimonial-author">
-                            <strong>محمد احمدی</strong>
-                            <span>دانشجوی کارشناسی ارشد - ریاضی</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-avatar">
-                        <img src="https://ui-avatars.com/api/?name=فاطمه+کریمی&background=9b59b6&color=fff" alt="فاطمه">
-                    </div>
-                    <div class="testimonial-content">
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="testimonial-text">"هیچ‌جا اطلاعات بورسیه‌ها را به این دقت و با این جزئیات ندیده بودم. کانال تلگرام اسکالروید واقعاً یک گنجینه است!"</p>
-                        <div class="testimonial-author">
-                            <strong>فاطمه کریمی</strong>
-                            <span>دانشجوی دکترا - مهندسی کامپیوتر</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-box">
-                <i class="fas fa-bell"></i>
-                <h3>از بورسیه‌های جدید باخبر شوید!</h3>
-                <p>با عضویت در خبرنامه، اولین نفری باشید که از بورسیه‌های جدید مطلع می‌شوید</p>
-                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-                    <input type="email" placeholder="ایمیل شما..." required>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i>
-                        عضویت
-                    </button>
-                </form>
-                <p class="newsletter-note">🔒 ایمیل شما نزد ما محفوظ است و فقط برای اطلاع‌رسانی بورسیه استفاده می‌شود</p>
             </div>
         </div>
     </section>
@@ -471,20 +325,13 @@
     <section id="about" class="about">
         <div class="container">
             <div class="about-grid">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600" alt="درباره اسکالروید">
-                    <div class="about-badge">
-                        <span class="badge-number">۵+</span>
-                        <span class="badge-text">سال تجربه</span>
-                    </div>
-                </div>
                 <div class="about-content">
                     <h2>درباره اسکالروید</h2>
                     <p class="about-intro">
                         اسکالروید یک پلتفرم تخصصی و غیرانتفاعی است که با هدف تسهیل دسترسی به فرصت‌های تحصیلی رایگان در جهان عرب و بین‌الملل فعالیت می‌کند.
                     </p>
                     <p>
-                        ما با گردآوری اطلاعات دقیق از منابع رسمی دانشگاه‌ها و نهادهای آموزشی، همراه با راهنمایی‌های تخصصی، مسیر تحصیل رایگان را برای دانشجویان مستعد هموار می‌سازیم.
+                        ما با گردآوری اطلاعات دقیق از منابع رسمی دانشگاه‌ها، همراه با راهنمایی‌های تخصصی، مسیر تحصیل رایگان را برای دانشجویان مستعد هموار می‌سازیم.
                     </p>
                     <ul class="about-list">
                         <li><i class="fas fa-check"></i> اطلاعات ۱۰۰٪ رایگان و شفاف</li>
@@ -492,10 +339,24 @@
                         <li><i class="fas fa-check"></i> پشتیبانی فارسی‌زبان</li>
                         <li><i class="fas fa-check"></i> جامعه فعال دانشجویی در تلگرام</li>
                     </ul>
-                    <a href="https://t.me/scholarvid" target="_blank" class="btn btn-primary">
-                        <i class="fab fa-telegram-plane"></i>
-                        پیوستن به کانال تلگرام
-                    </a>
+                    <div class="about-social">
+                        <a href="https://t.me/Saudi_Scholarships" target="_blank" class="btn btn-telegram">
+                            <i class="fab fa-telegram-plane"></i> کانال تلگرام
+                        </a>
+                        <a href="https://www.youtube.com/@ScholarVid" target="_blank" class="btn btn-youtube">
+                            <i class="fab fa-youtube"></i> کانال یوتیوب
+                        </a>
+                        <a href="https://www.instagram.com/scholarvid/" target="_blank" class="btn btn-instagram">
+                            <i class="fab fa-instagram"></i> اینستاگرام
+                        </a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="about-badge">
+                        <i class="fas fa-award"></i>
+                        <span class="badge-number">۵+</span>
+                        <span class="badge-text">سال تجربه</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -505,7 +366,10 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">تماس با ما</h2>
+                <h2 class="section-title">
+                    <i class="fas fa-envelope"></i>
+                    تماس با ما
+                </h2>
                 <p class="section-subtitle">سوالات خود را با ما در میان بگذارید</p>
             </div>
             <div class="contact-grid">
@@ -514,14 +378,21 @@
                         <i class="fab fa-telegram-plane"></i>
                         <div>
                             <h4>کانال تلگرام</h4>
-                            <a href="https://t.me/scholarvid" target="_blank">@scholarvid</a>
+                            <a href="https://t.me/Saudi_Scholarships" target="_blank">@Saudi_Scholarships</a>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fab fa-youtube"></i>
                         <div>
-                            <h4>ایمیل</h4>
-                            <a href="mailto:contact@scholarvid.com">contact@scholarvid.com</a>
+                            <h4>کانال یوتیوب</h4>
+                            <a href="https://www.youtube.com/@ScholarVid" target="_blank">@ScholarVid</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-instagram"></i>
+                        <div>
+                            <h4>اینستاگرام</h4>
+                            <a href="https://www.instagram.com/scholarvid/" target="_blank">@scholarvid</a>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -570,23 +441,17 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="logo">
-                        <span class="logo-icon">🎓</span>
+                        <i class="fas fa-graduation-cap logo-icon"></i>
                         <div class="logo-text">
                             <h1>اسکالروید</h1>
                             <span>ScholarVid</span>
                         </div>
                     </a>
                     <p>مرجع تخصصی بورسیه‌های تحصیلی جهان عرب و بین‌الملل. همراه شما در مسیر تحصیل رایگان.</p>
-                    <div class="social-links">
-                        <a href="https://t.me/scholarvid" target="_blank" class="social-link telegram">
-                            <i class="fab fa-telegram-plane"></i>
-                        </a>
-                        <a href="#" class="social-link instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
+                    <div class="footer-social">
+                        <a href="https://t.me/Saudi_Scholarships" target="_blank" class="social-btn telegram"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://www.youtube.com/@ScholarVid" target="_blank" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/scholarvid/" target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -594,13 +459,12 @@
                     <ul>
                         <li><a href="#home">خانه</a></li>
                         <li><a href="#scholarships">بورسیه‌ها</a></li>
-                        <li><a href="#categories">دسته‌بندی</a></li>
                         <li><a href="#about">درباره ما</a></li>
                         <li><a href="#contact">تماس</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>دسته‌بندی بورسیه‌ها</h4>
+                    <h4>کشورها</h4>
                     <ul>
                         <li><a href="#" data-filter="saudi">🇸🇦 عربستان سعودی</a></li>
                         <li><a href="#" data-filter="uae">🇦🇪 امارات متحده</a></li>
@@ -608,20 +472,10 @@
                         <li><a href="#" data-filter="international">🌍 بین‌المللی</a></li>
                     </ul>
                 </div>
-                <div class="footer-newsletter">
-                    <h4>خبرنامه</h4>
-                    <p>برای دریافت اطلاعیه‌های فوری بورسیه‌ها عضو شوید</p>
-                    <form class="footer-form" onsubmit="subscribeFooter(event)">
-                        <input type="email" placeholder="ایمیل شما..." required>
-                        <button type="submit"><i class="fas fa-arrow-left"></i></button>
-                    </form>
-                </div>
             </div>
             <div class="footer-bottom">
                 <p>© ۲۰۲۶ اسکالروید | تمام حقوق محفوظ است</p>
                 <p>
-                    طراحی شده با ❤️ برای دانشجویان مستعد
-                    <span class="separator">|</span>
                     <a href="#">حریم خصوصی</a>
                     <span class="separator">|</span>
                     <a href="#">شرایط استفاده</a>
@@ -632,18 +486,19 @@
 
     <!-- Scholarship Modal -->
     <div id="scholarshipModal" class="modal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">&times;</button>
-            <div id="modalBody">
-                <!-- محتوای مودال با جاوااسکریپت پر می‌شود -->
-            </div>
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalBody" class="modal-body"></div>
         </div>
     </div>
 
     <!-- Toast Notification -->
     <div id="toast" class="toast">
         <i class="fas fa-check-circle"></i>
-        <span id="toastMessage">عملیات با موفقیت انجام شد!</span>
+        <span id="toastMessage"></span>
     </div>
 
     <!-- Back to Top -->
