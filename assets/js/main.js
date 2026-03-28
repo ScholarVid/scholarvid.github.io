@@ -1,15 +1,14 @@
 /**
  * اسکالروید - اسکریپت‌های اصلی
- * نسخه: 2.0 | تاریخ: ۲۰۲۶
+ * نسخه نهایی - بهینه‌شده
  */
 
-// ========== تنظیمات  اولیه ==========
 document.addEventListener('DOMContentLoaded', () => {
     initPreloader();
     initTheme();
     initMobileMenu();
     initSmoothScroll();
-    initStatsCounter();
+    initHeaderScroll();
     initScholarshipFilter();
     initBackToTop();
     initModal();
@@ -21,34 +20,34 @@ function initPreloader() {
     const preloader = document.getElementById('preloader');
     setTimeout(() => {
         preloader.classList.add('hidden');
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 500);
-    }, 1500);
+        setTimeout(() => preloader.style.display = 'none', 400);
+    }, 1200);
 }
 
 // ========== Theme Toggle ==========
 function initTheme() {
     const toggle = document.getElementById('themeToggle');
     const icon = toggle.querySelector('i');
+    const tooltip = toggle.querySelector('.tooltip');
     
-    // بررسی تم ذخیره‌شده
     const savedTheme = localStorage.getItem('scholarvid-theme');
     if (savedTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
-        icon.classList.replace('fa-moon', 'fa-sun');
+        icon.className = 'fas fa-sun';
+        tooltip.textContent = 'حالت روشن';
     }
     
     toggle.addEventListener('click', () => {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        
         if (isDark) {
             document.documentElement.removeAttribute('data-theme');
-            icon.classList.replace('fa-sun', 'fa-moon');
+            icon.className = 'fas fa-moon';
+            tooltip.textContent = 'حالت تاریک';
             localStorage.setItem('scholarvid-theme', 'light');
         } else {
             document.documentElement.setAttribute('data-theme', 'dark');
-            icon.classList.replace('fa-moon', 'fa-sun');
+            icon.className = 'fas fa-sun';
+            tooltip.textContent = 'حالت روشن';
             localStorage.setItem('scholarvid-theme', 'dark');
         }
     });
@@ -62,15 +61,13 @@ function initMobileMenu() {
     btn?.addEventListener('click', () => {
         menu.classList.toggle('active');
         const icon = btn.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
+        icon.className = menu.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
     });
     
-    // بستن منو با کلیک روی لینک‌ها
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
         link.addEventListener('click', () => {
             menu.classList.remove('active');
-            btn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            btn.querySelector('i').className = 'fas fa-bars';
         });
     });
 }
@@ -85,212 +82,154 @@ function initSmoothScroll() {
                 const headerOffset = 80;
                 const elementPosition = target.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
             }
         });
     });
 }
 
-// ========== Stats Counter Animation ==========
-function initStatsCounter() {
-    const counters = document.querySelectorAll('.stat-number');
-    const observerOptions = { threshold: 0.5 };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const counter = entry.target;
-                const target = parseInt(counter.dataset.target);
-                const duration = 2000;
-                const step = target / (duration / 16);
-                let current = 0;
-                
-                const updateCounter = () => {
-                    current += step;
-                    if (current < target) {
-                        counter.textContent = Math.floor(current) + '+';
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.textContent = target + '+';
-                    }
-                };
-                
-                updateCounter();
-                observer.unobserve(counter);
-            }
-        });
-    }, observerOptions);
-    
-    counters.forEach(counter => observer.observe(counter));
+// ========== Header Scroll Effect ==========
+function initHeaderScroll() {
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
 }
 
 // ========== Scholarship Filter & Search ==========
 function initScholarshipFilter() {
     const cards = document.querySelectorAll('.scholarship-card');
-    const categoryBtns = document.querySelectorAll('.category-card');
     const searchInput = document.getElementById('searchInput');
     const levelFilter = document.getElementById('levelFilter');
     const sortFilter = document.getElementById('sortFilter');
+    const footerFilters = document.querySelectorAll('.footer-links a[data-filter]');
     
-    // فیلتر دسته‌بندی
-    categoryBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // حذف کلاس active از همه
-            categoryBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            const filter = btn.dataset.filter;
-            filterScholarships(filter, searchInput?.value || '', levelFilter?.value || '', sortFilter?.value || 'newest');
-        });
-    });
-    
-    // جستجو
-    searchInput?.addEventListener('input', () => {
-        const activeCategory = document.querySelector('.category-card.active')?.dataset.filter || 'all';
-        filterScholarships(activeCategory, searchInput.value, levelFilter?.value || '', sortFilter?.value || 'newest');
-    });
-    
-    // فیلتر مقطع
-    levelFilter?.addEventListener('change', () => {
-        const activeCategory = document.querySelector('.category-card.active')?.dataset.filter || 'all';
-        filterScholarships(activeCategory, searchInput?.value || '', levelFilter.value, sortFilter?.value || 'newest');
-    });
-    
-    // مرتب‌سازی
-    sortFilter?.addEventListener('change', () => {
-        const activeCategory = document.querySelector('.category-card.active')?.dataset.filter || 'all';
-        filterScholarships(activeCategory, searchInput?.value || '', levelFilter?.value || '', sortFilter.value);
-    });
-    
-    function filterScholarships(category, searchTerm, level, sortBy) {
-        const terms = searchTerm.toLowerCase().split(' ');
+    function filterScholarships(country, searchTerm, level, sortBy) {
+        const terms = searchTerm.toLowerCase().split(' ').filter(t => t);
         
         cards.forEach(card => {
-            const cardCategory = card.dataset.category;
+            const cardCountry = card.dataset.country;
             const cardLevel = card.dataset.level;
             const cardText = card.textContent.toLowerCase();
             
-            // فیلتر دسته‌بندی
-            const matchCategory = category === 'all' || cardCategory === category;
-            
-            // فیلتر جستجو
-            const matchSearch = terms.every(term => cardText.includes(term));
-            
-            // فیلتر مقطع
+            const matchCountry = !country || country === 'all' || cardCountry === country;
+            const matchSearch = terms.length === 0 || terms.every(term => cardText.includes(term));
             const matchLevel = !level || cardLevel.includes(level);
             
-            // نمایش/مخفی کردن
-            if (matchCategory && matchSearch && matchLevel) {
-                card.style.display = 'block';
+            if (matchCountry && matchSearch && matchLevel) {
+                card.style.display = 'flex';
                 setTimeout(() => {
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
-                }, 100);
+                }, 50);
             } else {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    card.style.display = 'none';
-                }, 300);
+                setTimeout(() => card.style.display = 'none', 250);
             }
         });
         
-        // مرتب‌سازی
-        if (sortBy !== 'newest') {
+        // Sort
+        if (sortBy && sortBy !== 'newest') {
             const grid = document.getElementById('scholarshipsGrid');
-            const visibleCards = Array.from(cards).filter(c => c.style.display !== 'none');
+            const visible = Array.from(cards).filter(c => c.style.display !== 'none');
             
             if (sortBy === 'deadline') {
-                // مرتب‌سازی بر اساس مهلت (ساده‌شده)
-                visibleCards.sort((a, b) => {
+                visible.sort((a, b) => {
                     const dateA = a.querySelector('.meta-item:last-child')?.textContent || '';
                     const dateB = b.querySelector('.meta-item:last-child')?.textContent || '';
                     return dateA.localeCompare(dateB, 'fa');
                 });
-            } else if (sortBy === 'popular') {
-                // کارت‌های ویژه اول
-                visibleCards.sort((a, b) => {
-                    const aFeatured = a.querySelector('.card-badge.featured') ? 1 : 0;
-                    const bFeatured = b.querySelector('.card-badge.featured') ? 1 : 0;
-                    return bFeatured - aFeatured;
-                });
             }
-            
-            visibleCards.forEach(card => grid.appendChild(card));
+            visible.forEach(card => grid.appendChild(card));
         }
     }
+    
+    // Footer category filters
+    footerFilters.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const filter = link.dataset.filter;
+            filterScholarships(filter, searchInput?.value || '', levelFilter?.value || '', sortFilter?.value || 'newest');
+            document.querySelector('#scholarships')?.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+    
+    searchInput?.addEventListener('input', () => {
+        const country = document.querySelector('.footer-links a.active')?.dataset.filter || 'all';
+        filterScholarships(country, searchInput.value, levelFilter?.value || '', sortFilter?.value || 'newest');
+    });
+    
+    levelFilter?.addEventListener('change', () => {
+        filterScholarships('all', searchInput?.value || '', levelFilter.value, sortFilter?.value || 'newest');
+    });
+    
+    sortFilter?.addEventListener('change', () => {
+        filterScholarships('all', searchInput?.value || '', levelFilter?.value || '', sortFilter.value);
+    });
 }
 
 // ========== Back to Top ==========
 function initBackToTop() {
     const btn = document.getElementById('backToTop');
-    
     window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            btn.classList.add('visible');
-        } else {
-            btn.classList.remove('visible');
-        }
+        btn.classList.toggle('visible', window.pageYOffset > 400);
     });
-    
-    btn?.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    btn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
 // ========== Modal ==========
 function initModal() {
     const modal = document.getElementById('scholarshipModal');
     
-    // بستن مودال با کلیک بیرون
     modal?.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
+        if (e.target.classList.contains('modal-overlay')) closeModal();
     });
     
-    // بستن با دکمه ESC
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeModal();
     });
 }
 
-function openModal(scholarshipId) {
+function openModal(id) {
     const modal = document.getElementById('scholarshipModal');
     const modalBody = document.getElementById('modalBody');
     
-    // داده‌های نمونه برای هر بورسیه
-    const scholarships = {
+    const data = {
         ksu: {
-            country: '🇸🇦 عربستان سعودی',
+            flag: 'https://flagcdn.com/w320/sa.png',
+            country: 'عربستان سعودی',
             title: 'بورسیه دانشگاه ملک سعود',
             deadline: '۳۰ اپریل ۲۰۲۶',
-            levels: 'کارشناسی، کارشناسی ارشد، دکترا',
+            levels: 'لیسانس، ماستری، دکترا',
             fields: 'علوم، مهندسی، پزشکی، علوم انسانی',
             benefits: [
                 'پوشش ۱۰۰٪ شهریه دانشگاه',
-                'حقوق ماهیانه: ۹۰۰ ریال (کارشناسی) تا ۳۰۰۰ ریال (دکترا)',
+                'حقوق ماهیانه: ۹۰۰ ریال (لیسانس) تا ۳۰۰۰ ریال (دکترا)',
                 'اسکان رایگان در خوابگاه‌های دانشگاه',
                 'بیمه درمانی کامل',
                 'بلیط رفت و برگشت سالیانه',
                 'دوره آماده‌سازی زبان عربی رایگان'
             ],
             requirements: [
-                'معدل حداقل ۸۰٪ برای کارشناسی، ۸۵٪ برای مقاطع بالاتر',
+                'معدل حداقل ۸۰٪ برای لیسانس، ۸۵٪ برای مقاطع بالاتر',
                 'گواهی سلامت پزشکی',
                 'عدم سوء پیشینه',
-                'توصیه‌نامه از دو استاد (برای ارشد و دکترا)',
+                'توصیه‌نامه از دو استاد (برای ماستری و دکترا)',
                 'انگیزه‌نامه به زبان انگلیسی یا عربی'
             ],
-            applyUrl: 'https://t.me/scholarvid'
+            applyUrl: 'https://t.me/Saudi_Scholarships'
         },
         uae: {
-            country: '🇦🇪 امارات متحده',
+            flag: 'https://flagcdn.com/w320/ae.png',
+            country: 'امارات متحده',
             title: 'بورسیه دانشگاه امارات',
             deadline: '۱۵ می ۲۰۲۶',
-            levels: 'کارشناسی ارشد، دکترا',
+            levels: 'ماستری، دکترا',
             fields: 'هوش مصنوعی، انرژی‌های تجدیدپذیر، علوم پزشکی',
             benefits: [
                 'معافیت کامل از شهریه',
@@ -300,42 +239,44 @@ function openModal(scholarshipId) {
                 'فرصت‌های پژوهشی بین‌المللی'
             ],
             requirements: [
-                'معدل کارشناسی حداقل ۳.۰ از ۴.۰',
+                'معدل لیسانس حداقل ۳.۰ از ۴.۰',
                 'مدرک زبان: آیلتس ۶.۵ یا معادل',
                 'پروپوزال پژوهشی (برای دکترا)',
                 'دو توصیه‌نامه آکادمیک',
                 'رزومه علمی به‌روز'
             ],
-            applyUrl: 'https://t.me/scholarvid'
+            applyUrl: 'https://t.me/Saudi_Scholarships'
         },
         turkey: {
-            country: '🇹🇷 ترکیه',
+            flag: 'https://flagcdn.com/w320/tr.png',
+            country: 'ترکیه',
             title: 'بورسیه دولت ترکیه (Türkiye Bursları)',
             deadline: '۱ ژوئن ۲۰۲۶',
-            levels: 'کارشناسی، کارشناسی ارشد',
+            levels: 'لیسانس، ماستری',
             fields: 'تمامی رشته‌های دانشگاهی',
             benefits: [
                 'تحصیل رایگان در بیش از ۱۵۰ دانشگاه',
-                'حقوق ماهیانه: ۱۱۰۰ لیر (کارشناسی) تا ۱۶۰۰ لیر (دکترا)',
+                'حقوق ماهیانه: ۱۱۰۰ لیر (لیسانس) تا ۱۶۰۰ لیر (دکترا)',
                 'اسکان رایگان در خوابگاه‌های دولتی',
                 'بلیط رفت و برگشت بین‌المللی',
                 'دوره یک‌ساله زبان ترکی رایگان',
                 'بیمه درمانی کامل'
             ],
             requirements: [
-                'معدل حداقل ۷۰٪ برای کارشناسی، ۷۵٪ برای ارشد',
-                'سن حداکثر ۲۱ سال برای کارشناسی، ۳۰ برای ارشد',
+                'معدل حداقل ۷۰٪ برای لیسانس، ۷۵٪ برای ماستری',
+                'سن حداکثر ۲۱ سال برای لیسانس، ۳۰ برای ماستری',
                 'عدم داشتن اقامت ترکیه',
                 'مدارک تحصیلی ترجمه‌شده به انگلیسی یا ترکی',
                 'عکس پرسنلی و کپی پاسپورت'
             ],
-            applyUrl: 'https://t.me/scholarvid'
+            applyUrl: 'https://t.me/Saudi_Scholarships'
         },
         qatar: {
-            country: '🇶🇦 قطر',
+            flag: 'https://flagcdn.com/w320/qa.png',
+            country: 'قطر',
             title: 'بورسیه دانشگاه قطر',
             deadline: '۲۰ می ۲۰۲۶',
-            levels: 'کارشناسی ارشد، دکترا',
+            levels: 'ماستری، دکترا',
             fields: 'مهندسی، علوم کامپیوتر، علوم اجتماعی',
             benefits: [
                 'پوشش کامل هزینه‌های تحصیلی',
@@ -346,65 +287,64 @@ function openModal(scholarshipId) {
                 'دسترسی به کتابخانه‌های دیجیتال جهانی'
             ],
             requirements: [
-                'معدل کارشناسی ارشد حداقل ۳.۲ از ۴.۰',
+                'معدل ماستری حداقل ۳.۲ از ۴.۰',
                 'مدرک زبان: آیلتس ۶.۵ یا تافل ۹۰',
                 'پروپوزال پژوهشی دقیق و نوآورانه',
                 'سه توصیه‌نامه آکادمیک',
                 'مقالات منتشرشده (امتیاز مثبت)'
             ],
-            applyUrl: 'https://t.me/scholarvid'
+            applyUrl: 'https://t.me/Saudi_Scholarships'
         }
     };
     
-    const data = scholarships[scholarshipId];
-    if (!data) return;
+    const item = data[id];
+    if (!item) return;
     
     modalBody.innerHTML = `
-        <div class="modal-body">
-            <div class="modal-header">
-                <div class="country-flag">${data.country}</div>
-                <h3>${data.title}</h3>
+        <div class="modal-header">
+            <img src="${item.flag}" alt="${item.country}" class="country-flag-img">
+            <h3>${item.title}</h3>
+        </div>
+        
+        <div class="modal-details">
+            <div class="detail-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span><strong>کشور:</strong> ${item.country}</span>
             </div>
-            
-            <div class="modal-details">
-                <div class="detail-item">
-                    <i class="fas fa-calendar-check"></i>
-                    <span><strong>مهلت ثبت‌نام:</strong> ${data.deadline}</span>
-                </div>
-                <div class="detail-item">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span><strong>مقاطع:</strong> ${data.levels}</span>
-                </div>
-                <div class="detail-item">
-                    <i class="fas fa-book-open"></i>
-                    <span><strong>رشته‌ها:</strong> ${data.fields}</span>
-                </div>
+            <div class="detail-item">
+                <i class="fas fa-calendar-check"></i>
+                <span><strong>مهلت ثبت‌نام:</strong> ${item.deadline}</span>
             </div>
-            
-            <div class="modal-benefits">
-                <h4>✨ مزایای بورسیه:</h4>
-                <ul>
-                    ${data.benefits.map(b => `<li><i class="fas fa-check-circle"></i> ${b}</li>`).join('')}
-                </ul>
+            <div class="detail-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span><strong>مقاطع:</strong> ${item.levels}</span>
             </div>
-            
-            <div class="modal-benefits">
-                <h4>📋 شرایط و مدارک:</h4>
-                <ul>
-                    ${data.requirements.map(r => `<li><i class="fas fa-arrow-left"></i> ${r}</li>`).join('')}
-                </ul>
+            <div class="detail-item">
+                <i class="fas fa-book-open"></i>
+                <span><strong>رشته‌ها:</strong> ${item.fields}</span>
             </div>
-            
-            <div class="modal-footer">
-                <a href="${data.applyUrl}" target="_blank" class="btn btn-primary btn-lg">
-                    <i class="fas fa-paper-plane"></i>
-                    شروع ثبت‌نام در تلگرام
-                </a>
-                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">
-                    <i class="fas fa-info-circle"></i>
-                    برای راهنمایی بیشتر و ارسال مدارک، به کانال تلگرام اسکالروید مراجعه کنید
-                </p>
-            </div>
+        </div>
+        
+        <div class="modal-benefits">
+            <h4><i class="fas fa-gift"></i> مزایای بورسیه:</h4>
+            <ul>
+                ${item.benefits.map(b => `<li><i class="fas fa-check-circle"></i> ${b}</li>`).join('')}
+            </ul>
+        </div>
+        
+        <div class="modal-requirements">
+            <h4><i class="fas fa-clipboard-list"></i> شرایط و مدارک:</h4>
+            <ul>
+                ${item.requirements.map(r => `<li><i class="fas fa-arrow-left"></i> ${r}</li>`).join('')}
+            </ul>
+        </div>
+        
+        <div class="modal-footer">
+            <a href="${item.applyUrl}" target="_blank" class="btn btn-primary btn-lg">
+                <i class="fas fa-paper-plane"></i>
+                شروع ثبت‌نام در تلگرام
+            </a>
+            <p><i class="fas fa-info-circle"></i> برای راهنمایی بیشتر و ارسال مدارک، به کانال تلگرام مراجعه کنید</p>
         </div>
     `;
     
@@ -418,10 +358,9 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-// ========== Toast Notification ==========
+// ========== Toast ==========
 function initToast() {
-    // Toast به صورت جهانی در دسترس است
-    window.showToast = function(message, type = 'success') {
+    window.showToast = (message, type = 'success') => {
         const toast = document.getElementById('toast');
         const toastMessage = document.getElementById('toastMessage');
         const icon = toast.querySelector('i');
@@ -439,60 +378,23 @@ function initToast() {
         }
         
         toast.classList.add('show');
-        
-        setTimeout(() => {
-            toast.classList.remove('show');
-        }, 4000);
+        setTimeout(() => toast.classList.remove('show'), 4000);
     };
 }
 
 // ========== Form Handlers ==========
-function subscribeNewsletter(e) {
-    e.preventDefault();
-    const email = e.target.querySelector('input').value;
-    
-    // اینجا می‌توانید به API خود متصل شوید
-    showToast('✅ ایمیل شما با موفقیت ثبت شد! خبرنامه بورسیه‌ها فعال شد.');
-    e.target.reset();
-}
-
 function sendContact(e) {
     e.preventDefault();
-    
-    // نمایش لودینگ
     const btn = e.target.querySelector('button[type="submit"]');
-    const originalText = btn.innerHTML;
+    const original = btn.innerHTML;
+    
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> در حال ارسال...';
     btn.disabled = true;
     
-    // شبیه‌سازی ارسال
     setTimeout(() => {
-        showToast('✅ پیام شما با موفقیت ارسال شد! به زودی با شما تماس می‌گیریم.');
+        showToast('✅ پیام شما با موفقیت ارسال شد!');
         e.target.reset();
-        btn.innerHTML = originalText;
+        btn.innerHTML = original;
         btn.disabled = false;
     }, 1500);
 }
-
-function subscribeFooter(e) {
-    e.preventDefault();
-    showToast('✅ عضویت در خبرنامه با موفقیت انجام شد!');
-    e.target.reset();
-}
-
-// ========== Load More Button ==========
-document.getElementById('loadMoreBtn')?.addEventListener('click', function() {
-    showToast('📚 بورسیه‌های بیشتر به زودی اضافه می‌شوند! برای اطلاع فوری، کانال تلگرام را دنبال کنید.');
-});
-
-// ========== Header Scroll Effect ==========
-window.addEventListener('scroll', () => {
-    const header = document.getElementById('header');
-    if (window.pageYOffset > 50) {
-        header.style.boxShadow = 'var(--shadow-lg)';
-        header.style.background = 'rgba(255,255,255,0.98)';
-    } else {
-        header.style.boxShadow = 'none';
-        header.style.background = 'rgba(255,255,255,0.95)';
-    }
-});
