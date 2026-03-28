@@ -1,0 +1,27 @@
+{
+  "scholarships": [
+    {
+      "id": "new-scholarship",
+      "title": "عنوان بورسیه جدید",
+      "country": "نام کشور",
+      "countryCode": "🇽🇽",
+      "category": "saudi|uae|qatar|international",
+      "levels": ["bachelor", "master", "phd"],
+      "deadline": "۳۰ دسامبر ۲۰۲۶",
+      "description": "توضیح کوتاه درباره بورسیه",
+      "benefits": [
+        "مزیت اول",
+        "مزیت دوم",
+        "مزیت سوم"
+      ],
+      "requirements": [
+        "شرط اول",
+        "شرط دوم"
+      ],
+      "applyUrl": "https://t.me/scholarvid",
+      "featured": false,
+      "urgent": false,
+      "image": "https://images.unsplash.com/photo-...?w=400"
+    }
+  ]
+}
