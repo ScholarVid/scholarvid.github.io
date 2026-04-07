@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="icon" href="image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎓%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎓%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
@@ -16,7 +16,7 @@
         <div class="loader">
             <i class="fas fa-graduation-cap loader-icon"></i>
             <p>اسکالر وید</p>
-            <p>مرکز اطلاع‌ رسانی بورسیه‌ های عربی و بین‌ المللی</p>
+            <p>مرکز اطلاع‌رسانی بورسیه‌های عربی و بین‌المللی</p>
         </div>
     </div>
 
@@ -28,7 +28,7 @@
     <!-- Header -->
     <header id="header">
         <div class="container header-inner">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <i class="fas fa-graduation-cap logo-icon"></i>
                 <h1>اسکالر وید</h1>
             </a>
@@ -64,7 +64,7 @@
             <a href="#about" class="mobile-nav-link"><i class="fas fa-info-circle"></i> درباره ما</a>
             <a href="#contact" class="mobile-nav-link"><i class="fas fa-envelope"></i> تماس</a>
             <div class="mobile-social">
-                <a href="https://t.me/Saudi_Scholarships" target="_blank"><i class="fab fa-telegram-plane"></i> کانال بورسیه‌ های عربستان</a>
+                <a href="https://t.me/Saudi_Scholarships" target="_blank"><i class="fab fa-telegram-plane"></i> کانال بورسیه‌های عربستان</a>
                 <a href="https://t.me/ScholarVid" target="_blank"><i class="fas fa-bullhorn"></i> کانال اسکالر وید</a>
                 <a href="https://www.youtube.com/@ScholarVid" target="_blank"><i class="fab fa-youtube"></i> کانال یوتیوب</a>
                 <a href="https://www.instagram.com/scholarvid/" target="_blank"><i class="fab fa-instagram"></i> صفحه اینستاگرام</a>
@@ -84,101 +84,68 @@
         </div>
     </section>
 
-    <!-- Scholarships Section -->
+    <!-- Scholarships Section (Simplified Cards) -->
     <section id="scholarships" class="scholarships">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">
                     <i class="fas fa-book-open"></i>
-                    بورسیه‌های فعال
+                    بورسیه‌های موجود
                 </h2>
-                <p class="section-subtitle">بورسیه‌های فعلی برای ثبت‌ نام موجود می‌باشد</p>
+                <p class="section-subtitle">برای مشاهده جزئیات کامل، روی هر بورسیه کلیک کنید</p>
             </div>
 
             <div id="scholarshipsGrid" class="scholarships-grid">
-
-                <!-- کارت بورسیه عربستان سعودی (فعال) -->
-                <article class="scholarship-card" data-country="saudi" data-level="bachelor,master,phd">
+                <!-- کارت بورسیه عربستان سعودی -->
+                <article class="scholarship-card">
                     <div class="card-flag">
                         <img src="https://flagcdn.com/w320/sa.png" alt="عربستان سعودی" class="country-flag-img">
-                        <span class="country-name">عربستان سعودی (ثبت نام به زودی شروع میشود)</span>
+                        <span class="country-name">عربستان سعودی</span>
                     </div>
                     <div class="card-content">
-                        <div class="card-meta">
-                            <span class="meta-item"><i class="fas fa-graduation-cap"></i> لیسانس، ماستری، دکتورا</span>
-                            <span class="meta-item"><i class="fas fa-clock"></i> به زودی</span>
-                        </div>
-                        <h3 class="card-title">بورسیه‌های رایگان عربستان سعودی</h3>
-                        <p class="card-excerpt">بورسیه‌های کامل تحصیلی برای دانشجویان بین‌المللی در رشته‌های علوم عصری و علوم شرعی از طریق سایت وزارت تعلیم عربستان سعودی</p>
-                        <ul class="card-benefits">
-                            <li><i class="fas fa-check-circle"></i> بلیت رفت و برگشت سالانه</li>
-                            <li><i class="fas fa-check-circle"></i> اقامت و بیمه درمانی رایگان</li>
-                            <li><i class="fas fa-check-circle"></i> حقوق ماهیانه ۸۵۰ ریال سعودی</li>
-                            <li><i class="fas fa-check-circle"></i> کمک مالی برای خرید کتاب و لوازم تحصیلی</li>
-                            <li><i class="fas fa-check-circle"></i> فرصت حج و عمره رایگان</li>
-                        </ul>
+                        <h3 class="card-title">بورسیه‌های وزارت تعلیم عربستان</h3>
+                        <p class="card-excerpt">بورسیه کامل تحصیلی برای مقاطع لیسانس، ماستری و دکتورا در رشته‌های علوم عصری و علوم شرعی</p>
                         <div class="card-actions">
-                            <button class="btn btn-sm btn-outline details-btn" onclick="openModal('ksu')">
-                                <i class="fas fa-eye"></i> جزئیات
-                            </button>
+                            <a href="https://scholarvid.github.io/saudi/" class="btn btn-primary btn-sm">
+                                <i class="fas fa-eye"></i> مشاهده و ثبت‌نام
+                            </a>
                         </div>
                     </div>
                 </article>
 
-                <!-- کارت بورسیه ترکیه دولتی (ختم شده) -->
-                <article class="scholarship-card expired" data-country="turkey" data-level="bachelor,master,phd">
+                <!-- کارت بورسیه دولتی ترکیه -->
+                <article class="scholarship-card">
                     <div class="card-flag">
                         <img src="https://flagcdn.com/w320/tr.png" alt="ترکیه" class="country-flag-img">
-                        <span class="country-name">ترکیه (ثبت نام ختم شد)</span>
+                        <span class="country-name">ترکیه</span>
                     </div>
                     <div class="card-content">
-                        <div class="card-meta">
-                            <span class="meta-item"><i class="fas fa-graduation-cap"></i> لیسانس، ماستری، دکترا</span>
-                            <span class="meta-item"><i class="fas fa-clock"></i>ثبت نام ختم شده (۲۰ فبروری ۲۰۲۶)</span>
-                        </div>
                         <h3 class="card-title">بورسیه رایگان دولتی ترکیه</h3>
-                        <p class="card-excerpt">بورسیه کامل دولتی ترکیه شامل بیمه، لیلیه، فیس دانشگاه و حقوق ماهیانه</p>
-                        <ul class="card-benefits">
-                            <li><i class="fas fa-check-circle"></i> بیمه صحی رایگان</li>
-                            <li><i class="fas fa-check-circle"></i> لیلیه رایگان</li>
-                            <li><i class="fas fa-check-circle"></i> معافیت از فیس دانشگاه + دوره زبان</li>
-                            <li><i class="fas fa-check-circle"></i> معاش ماهانه (لیسانس ۷۰۰ لیر، ارشد ۸۰۰ لیر، دکترا ۱۴۰۰ لیر)</li>
-                        </ul>
+                        <p class="card-excerpt">بورسیه کامل دولتی شامل بیمه، لیلیه، فیس دانشگاه و حقوق ماهیانه – ثبت‌نام ختم شده (۲۰ فبروری ۲۰۲۶)</p>
                         <div class="card-actions">
-                            <button class="btn btn-sm btn-outline details-btn" onclick="openModal('turkey_gov')">
-                                <i class="fas fa-eye"></i> جزئیات
-                            </button>
+                            <a href="https://scholarvid.github.io/turkey/" class="btn btn-primary btn-sm">
+                                <i class="fas fa-eye"></i> مشاهده جزئیات
+                            </a>
                         </div>
                     </div>
                 </article>
 
-                <!-- کارت بورسیه دیانت ترکیه (ختم شده) -->
-                <article class="scholarship-card expired" data-country="turkey-diyanet" data-level="highschool,bachelor,master,phd">
+                <!-- کارت بورسیه دیانت ترکیه -->
+                <article class="scholarship-card">
                     <div class="card-flag">
-                        <img src="https://flagcdn.com/w320/tr.png" alt="ترکیه" class="country-flag-img">
-                        <span class="country-name">دیانت ترکیه (ثبت نام ختم شد)</span>
+                        <img src="https://flagcdn.com/w320/tr.png" alt="ترکیه - دیانت" class="country-flag-img">
+                        <span class="country-name">ترکیه (دیانت)</span>
                     </div>
                     <div class="card-content">
-                        <div class="card-meta">
-                            <span class="meta-item"><i class="fas fa-graduation-cap"></i> لیسه، لیسانس، ماستری، دکتورا</span>
-                            <span class="meta-item"><i class="fas fa-clock"></i>ثبت نام ختم شده (۲۸ فبروری ۲۰۲۶)</span>
-                        </div>
                         <h3 class="card-title">بورسیه رایگان بنیاد دیانت ترکیه</h3>
-                        <p class="card-excerpt">بورسیه ویژه علوم اسلامی و شرعی شامل ویزه اقامه، تکت سالانه، لیلیه و غذا، بیمه و حقوق ماهیانه</p>
-                        <ul class="card-benefits">
-                            <li><i class="fas fa-check-circle"></i> ویزه اقامه + تکت رفت و برگشت سالانه</li>
-                            <li><i class="fas fa-check-circle"></i> لیلیه رایگان</li>
-                            <li><i class="fas fa-check-circle"></i> معافیت از فیس دانشگاه + دوره زبان</li>
-                            <li><i class="fas fa-check-circle"></i> بیمه صحی + ترانسپورت</li>
-                        </ul>
+                        <p class="card-excerpt">بورسیه ویژه علوم اسلامی و شرعی شامل ویزه اقامه، تکت سالانه، لیلیه و غذا – ثبت‌نام ختم شده (۲۸ فبروری ۲۰۲۶)</p>
                         <div class="card-actions">
-                            <button class="btn btn-sm btn-outline details-btn" onclick="openModal('diyanet')">
-                                <i class="fas fa-eye"></i> جزئیات
-                            </button>
+                            <a href="https://scholarvid.github.io/diyanet/" class="btn btn-primary btn-sm">
+                                <i class="fas fa-eye"></i> مشاهده جزئیات
+                            </a>
                         </div>
                     </div>
                 </article>
-
             </div>
         </div>
     </section>
@@ -333,7 +300,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-brand">
-                <a href="#" class="logo">
+                <a href="index.html" class="logo">
                     <i class="fas fa-graduation-cap logo-icon"></i>
                     <h1>اسکالر وید</h1>
                 </a>
@@ -353,15 +320,7 @@
         </div>
     </footer>
 
-    <!-- Modal, Toast, Back to Top -->
-    <div id="scholarshipModal" class="modal">
-        <div class="modal-overlay" onclick="closeModal()"></div>
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-            <div id="modalBody" class="modal-body"></div>
-        </div>
-    </div>
-    <div id="toast" class="toast"><i class="fas fa-check-circle"></i><span id="toastMessage"></span></div>
+    <!-- Back to Top -->
     <button id="backToTop" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
 
     <script src="assets/js/main.js"></script>
