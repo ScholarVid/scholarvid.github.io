@@ -902,3 +902,8 @@ ul { list-style: none; }
 .scholarships {
     padding-top: 2.5rem; /* فاصله از بالا */
 }
+/* هم‌عرض کردن دکمه با کارت بورسیه */
+.scholarship-card .card-actions .btn {
+    width: 100%;
+    justify-content: center;
+}
