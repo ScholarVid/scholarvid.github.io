@@ -431,7 +431,10 @@ ul { list-style: none; }
 }
 
 /* ========== Features ========== */
-.features { background: var(--bg-body); }
+.features { 
+    background: var(--bg-body); 
+    padding-top: 4.5rem; /* فاصله از بالا افزایش یافت */
+}
 .features-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: var(--spacing-lg);
@@ -879,5 +882,19 @@ ul { list-style: none; }
         flex-direction: column; 
         text-align: center; 
         align-items: center; 
+    }
+}
+/* ========================================
+   اصلاح چیدمان ۵ کارت ویژگی - دسکتاپ
+   ======================================== */
+@media (min-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        justify-items: center;
+    }
+    
+    .feature-card {
+        width: 100%;
+        max-width: 350px;
     }
 }
