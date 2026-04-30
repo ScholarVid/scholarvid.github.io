@@ -10,16 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initBackToTop();
 });
 
-function initPreloader() {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-        setTimeout(() => {
-            preloader.classList.add('hidden');
-            setTimeout(() => preloader.style.display = 'none', 400);
-        }, 1200);
-    }
-}
-
 function initTheme() {
     const toggle = document.getElementById('themeToggle');
     if (!toggle) return;
