@@ -907,3 +907,112 @@ ul { list-style: none; }
     width: 100%;
     justify-content: center;
 }
+/* ========================================
+   ادامه استایل‌ها: پوستر و کارت‌های اطلاعاتی بورسیه
+   ======================================== */
+
+/* پوستر (بروشور) */
+.poster-container {
+    margin: var(--spacing-xl) 0;
+    text-align: center;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    background: var(--bg-card);
+    transition: var(--transition);
+}
+.poster-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.poster-image:hover {
+    transform: scale(1.02);
+}
+
+/* شبکه کارت‌های اطلاعاتی */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* کارت اطلاعاتی (مزایا، مدارک، شرایط) */
+.info-card {
+    background: var(--bg-card);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid var(--border);
+}
+.info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-light);
+}
+.info-card h3 {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary);
+    font-weight: 700;
+}
+.info-card ul {
+    list-style: none;
+    padding-right: 0;
+}
+.info-card li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+.info-card li i {
+    margin-top: 4px;
+    color: var(--primary);
+    width: 20px;
+}
+.info-card .strong {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* باکس اقدام (درخواست) */
+.apply-box {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    background: var(--bg-hover);
+    border-radius: var(--radius-lg);
+    transition: var(--transition);
+}
+.apply-box .btn {
+    margin-bottom: var(--spacing-md);
+}
+
+/* ریسپانسیو برای کارت‌ها */
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    .poster-container {
+        margin: var(--spacing-lg) 0;
+    }
+}
+@media (max-width: 480px) {
+    .info-card h3 {
+        font-size: 1.2rem;
+    }
+    .info-card li {
+        font-size: 0.9rem;
+    }
+}
