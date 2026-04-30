@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#2563eb">
     <title>اسکالر وید | مرکز بورسیه‌های عربی و بین‌المللی</title>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -11,143 +12,200 @@
 </head>
 <body>
 
-    <button id="themeToggle" class="theme-toggle"><i class="fas fa-moon"></i></button>
+    <button id="themeToggle" class="theme-toggle" aria-label="تغییر تم">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div id="preloader">
+        <div class="loader">
+            <i class="fas fa-graduation-cap loader-icon"></i>
+            <p>در حال بارگذاری...</p>
+        </div>
+    </div>
 
     <header id="header">
         <div class="container header-inner">
-            <a href="index.html" class="logo"><i class="fas fa-graduation-cap logo-icon"></i><h1>اسکالر وید</h1></a>
+            <a href="index.html" class="logo" aria-label="اسکالر وید">
+                <i class="fas fa-graduation-cap logo-icon"></i>
+                <h1>اسکالر وید</h1>
+            </a>
+
             <nav class="nav-desktop">
                 <a href="#scholarships" class="nav-link active">بورسیه‌ها</a>
                 <a href="#about" class="nav-link">درباره</a>
                 <a href="#contact" class="nav-link">تماس</a>
             </nav>
+
             <div class="header-actions">
                 <div class="social-links-header">
-                    <a href="https://t.me/ScholarVid" target="_blank" class="social-btn telegram"><i class="fab fa-telegram-plane"></i></a>
-                    <a href="https://facebook.com/ScholarVid" target="_blank" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.youtube.com/@ScholarVid" target="_blank" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/scholarvid/" target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/ScholarVid" target="_blank" rel="noopener noreferrer" class="social-btn telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="https://facebook.com/ScholarVid" target="_blank" rel="noopener noreferrer" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/@ScholarVid" target="_blank" rel="noopener noreferrer" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/scholarvid/" target="_blank" rel="noopener noreferrer" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
                 </div>
-                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+
+                <button class="mobile-menu-btn" aria-label="باز کردن منو">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
+
         <div class="mobile-menu">
             <a href="#scholarships" class="mobile-nav-link"><i class="fas fa-book"></i> بورسیه‌ها</a>
             <a href="#about" class="mobile-nav-link"><i class="fas fa-info-circle"></i> درباره ما</a>
             <a href="#contact" class="mobile-nav-link"><i class="fas fa-envelope"></i> تماس</a>
             <div class="mobile-social">
-                <a href="https://t.me/Saudi_Scholarships" target="_blank"><i class="fab fa-telegram-plane"></i> کانال بورسیه‌های عربستان</a>
-                <a href="https://t.me/ScholarVid" target="_blank"><i class="fas fa-bullhorn"></i> کانال اسکالر وید</a>
-                <a href="https://www.youtube.com/@ScholarVid" target="_blank"><i class="fab fa-youtube"></i> کانال یوتیوب</a>
-                <a href="https://www.instagram.com/scholarvid/" target="_blank"><i class="fab fa-instagram"></i> صفحه اینستاگرام</a>
-                <a href="https://www.facebook.com/scholarvid" target="_blank"><i class="fab fa-facebook"></i>صفحه فیسبوک</a>
-                <a href="https://whatsapp.com/channel/0029Va9BO6IGehEGlabElf3H" target="_blank"><i class="fab fa-whatsapp"></i> کانال واتساپ</a>
+                <a href="https://t.me/Saudi_Scholarships" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram-plane"></i> کانال بورسیه‌های عربستان</a>
+                <a href="https://t.me/ScholarVid" target="_blank" rel="noopener noreferrer"><i class="fas fa-bullhorn"></i> کانال اسکالر وید</a>
+                <a href="https://www.youtube.com/@ScholarVid" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> کانال یوتیوب</a>
+                <a href="https://www.instagram.com/scholarvid/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> صفحه اینستاگرام</a>
+                <a href="https://www.facebook.com/scholarvid" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i>صفحه فیسبوک</a>
+                <a href="https://whatsapp.com/channel/0029Va9BO6IGehEGlabElf3H" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> کانال واتساپ</a>
             </div>
         </div>
     </header>
 
-    <section id="scholarships" class="scholarships">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title"><i class="fas fa-book-open"></i> بورسیه‌های موجود</h2>
-                <p class="section-subtitle">برای مشاهده جزئیات کامل، روی هر بورسیه کلیک کنید</p>
-            </div>
-            <div class="scholarships-grid">
-                <!-- عربستان -->
-                <article class="scholarship-card">
-                    <div class="card-flag">
-                        <img src="https://flagcdn.com/w320/sa.png" alt="عربستان سعودی" class="country-flag-img">
-                        <span class="country-name">عربستان سعودی</span>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">بورسیه‌های وزارت تعلیم عربستان</h3>
-                        <p class="card-excerpt">بورسیه کامل تحصیلی برای مقاطع لیسانس، ماستری و دکتورا در رشته‌های علوم عصری و علوم شرعی</p>
-                        <div class="card-meta" style="margin-bottom: 12px;">
-                            <span class="meta-item"><i class="fas fa-calendar-alt"></i> ختم ثبت نام: ۲۱ می ۲۰۲۶ (۳۱ ثور ۱۴۰۵)</span>
-                        </div>
-                        <div class="card-actions">
-                            <a href="saudi.html" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i> مشاهده و ثبت‌نام</a>
-                        </div>
-                    </div>
-                </article>
-                <!-- ترکیه دولتی -->
-                <article class="scholarship-card">
-                    <div class="card-flag">
-                        <img src="https://flagcdn.com/w320/tr.png" alt="ترکیه" class="country-flag-img">
-                        <span class="country-name">ترکیه</span>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">بورسیه رایگان دولتی ترکیه</h3>
-                        <p class="card-excerpt">بورسیه کامل دولتی شامل بیمه، لیلیه، فیس دانشگاه و حقوق ماهیانه</p>
-                        <div class="card-meta" style="margin-bottom: 12px;">
-                            <span class="meta-item"><i class="fas fa-ban" style="color: var(--danger);"></i> ختم شده (۲۵ فبروری ۲۰۲۶)</span>
-                        </div>
-                        <div class="card-actions">
-                            <a href="turkey.html" class="btn btn-outline btn-sm"><i class="fas fa-eye"></i> مشاهده جزئیات</a>
-                        </div>
-                    </div>
-                </article>
-                <!-- دیانت ترکیه -->
-                <article class="scholarship-card">
-                    <div class="card-flag">
-                        <img src="https://flagcdn.com/w320/tr.png" alt="ترکیه - دیانت" class="country-flag-img">
-                        <span class="country-name">ترکیه (دیانت)</span>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">بورسیه رایگان بنیاد دیانت ترکیه</h3>
-                        <p class="card-excerpt">بورسیه ویژه علوم اسلامی و شرعی شامل ویزه اقامه، تکت سالانه، لیلیه و غذا</p>
-                        <div class="card-meta" style="margin-bottom: 12px;">
-                            <span class="meta-item"><i class="fas fa-ban" style="color: var(--danger);"></i> ختم شده (۲۸ فبروری ۲۰۲۶)</span>
-                        </div>
-                        <div class="card-actions">
-                            <a href="diyanet.html" class="btn btn-outline btn-sm"><i class="fas fa-eye"></i> مشاهده جزئیات</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
+    <main>
+        <section id="scholarships" class="scholarships">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-book-open"></i> بورسیه‌های موجود</h2>
+                    <p class="section-subtitle">برای مشاهده جزئیات کامل، روی هر بورسیه کلیک کنید</p>
+                </div>
 
-    <section class="features">
-        <div class="container">
-            <div class="section-header"><h2 class="section-title"><i class="fas fa-lightbulb"></i> چرا اسکالر وید؟</h2></div>
-            <div class="features-grid">
-                <div class="feature-card"><div class="feature-icon"><i class="fas fa-globe-americas"></i></div><h3>پلتفرم تخصصی</h3><p>اسکالر وید یک پلتفرم تخصصی و غیرانتفاعی، با هدف تسهیل دسترسی به فرصت‌های تحصیلی رایگان در جهان عرب و بین‌الملل</p></div>
-                <div class="feature-card"><div class="feature-icon"><i class="fas fa-check-circle"></i></div><h3>اطلاعات دقیق و موثق</h3><p>معلومات بورسیه‌ها مستقیما از منابع رسمی گرفته شده و نشر می‌شود</p></div>
-                <div class="feature-card"><div class="feature-icon"><i class="fas fa-hands-helping"></i></div><h3>پشتیبانی تخصصی</h3><p>راهنمایی کامل مرحله به مرحله از تهیه اسناد شروع ثبت‌ نام تا قبولی نهایی</p></div>
-                <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>حریم خصوصی و امنیت اسناد</h3><p>اطلاعات و مدارک شخصی شما نزد ما کاملاً محفوظ، امن میباشد</p></div>
-                <div class="feature-card"><div class="feature-icon"><i class="fas fa-file-alt"></i></div><h3>کمک در تهیه مدارک</h3><p>راهنمایی برای آماده‌سازی اسناد، نوشتن انگیزه‌نامه و سی وی</p></div>
-                <div class="feature-card"><div class="feature-icon"><i class="fas fa-users"></i></div><h3>تجربه چندین ساله</h3><p>تجربه چندین ساله در زمینه ثبت‌ نام بورسیه‌های عربی و ثبت‌ نام تعداد زیادی از متقاضیان</p></div>
-            </div>
-        </div>
-    </section>
+                <div class="scholarships-grid">
+                    <article class="scholarship-card">
+                        <div class="card-flag">
+                            <img src="https://flagcdn.com/w320/sa.png" alt="عربستان سعودی" class="country-flag-img">
+                            <span class="country-name">عربستان سعودی</span>
+                            <span class="card-status active">فعال</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">بورسیه‌های وزارت تعلیم عربستان</h3>
+                            <p class="card-excerpt">بورسیه کامل تحصیلی برای مقاطع لیسانس، ماستری و دکتورا در رشته‌های علوم عصری و علوم شرعی</p>
+                            <div class="card-meta">
+                                <span class="meta-item"><i class="fas fa-calendar-alt"></i> ختم ثبت نام: ۲۱ می ۲۰۲۶ (۳۱ ثور ۱۴۰۵)</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="saudi.html" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i> مشاهده و ثبت‌نام</a>
+                            </div>
+                        </div>
+                    </article>
 
-    <section id="about" class="about-new">
-        <div class="container">
-            <div class="about-stats-wrapper">
-                <div class="about-stats-card">
-                    <div class="stat-item">
-                        <span class="stat-number" data-count="5">0</span>
-                        <span class="stat-label">سال تجربه</span>
+                    <article class="scholarship-card">
+                        <div class="card-flag">
+                            <img src="https://flagcdn.com/w320/tr.png" alt="ترکیه" class="country-flag-img">
+                            <span class="country-name">ترکیه</span>
+                            <span class="card-status expired">ختم شده</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">بورسیه رایگان دولتی ترکیه</h3>
+                            <p class="card-excerpt">بورسیه کامل دولتی شامل بیمه، لیلیه، فیس دانشگاه و حقوق ماهیانه</p>
+                            <div class="card-meta">
+                                <span class="meta-item"><i class="fas fa-ban" style="color: var(--danger);"></i> ختم شده (۲۵ فبروری ۲۰۲۶)</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="turkey.html" class="btn btn-outline btn-sm"><i class="fas fa-eye"></i> مشاهده جزئیات</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="scholarship-card">
+                        <div class="card-flag">
+                            <img src="https://flagcdn.com/w320/tr.png" alt="ترکیه - دیانت" class="country-flag-img">
+                            <span class="country-name">ترکیه (دیانت)</span>
+                            <span class="card-status expired">ختم شده</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">بورسیه رایگان بنیاد دیانت ترکیه</h3>
+                            <p class="card-excerpt">بورسیه ویژه علوم اسلامی و شرعی شامل ویزه اقامه، تکت سالانه، لیلیه و غذا</p>
+                            <div class="card-meta">
+                                <span class="meta-item"><i class="fas fa-ban" style="color: var(--danger);"></i> ختم شده (۲۸ فبروری ۲۰۲۶)</span>
+                            </div>
+                            <div class="card-actions">
+                                <a href="diyanet.html" class="btn btn-outline btn-sm"><i class="fas fa-eye"></i> مشاهده جزئیات</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-lightbulb"></i> چرا اسکالر وید؟</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card"><div class="feature-icon"><i class="fas fa-globe-americas"></i></div><h3>پلتفرم تخصصی</h3><p>اسکالر وید یک پلتفرم تخصصی و غیرانتفاعی، با هدف تسهیل دسترسی به فرصت‌های تحصیلی رایگان در جهان عرب و بین‌الملل</p></div>
+                    <div class="feature-card"><div class="feature-icon"><i class="fas fa-check-circle"></i></div><h3>اطلاعات دقیق و موثق</h3><p>معلومات بورسیه‌ها مستقیما از منابع رسمی گرفته شده و نشر می‌شود</p></div>
+                    <div class="feature-card"><div class="feature-icon"><i class="fas fa-hands-helping"></i></div><h3>پشتیبانی تخصصی</h3><p>راهنمایی کامل مرحله به مرحله از تهیه اسناد شروع ثبت‌ نام تا قبولی نهایی</p></div>
+                    <div class="feature-card"><div class="feature-icon"><i class="fas fa-shield-alt"></i></div><h3>حریم خصوصی و امنیت اسناد</h3><p>اطلاعات و مدارک شخصی شما نزد ما کاملاً محفوظ، امن میباشد</p></div>
+                    <div class="feature-card"><div class="feature-icon"><i class="fas fa-file-alt"></i></div><h3>کمک در تهیه مدارک</h3><p>راهنمایی برای آماده‌سازی اسناد، نوشتن انگیزه‌نامه و سی وی</p></div>
+                    <div class="feature-card"><div class="feature-icon"><i class="fas fa-users"></i></div><h3>تجربه چندین ساله</h3><p>تجربه چندین ساله در زمینه ثبت‌ نام بورسیه‌های عربی و ثبت‌ نام تعداد زیادی از متقاضیان</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-new">
+            <div class="container">
+                <div class="about-stats-wrapper">
+                    <div class="about-stats-card">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="5">0</span>
+                            <span class="stat-label">سال تجربه</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header"><h2 class="section-title"><i class="fas fa-share-alt"></i> کانال‌ها و صفحات ما</h2></div>
-            <div class="channels-grid">
-                <a href="https://t.me/Saudi_Scholarships" target="_blank" class="channel-card telegram"><div class="channel-icon"><i class="fas fa-kaaba"></i></div><div class="channel-info"><h3>تلگرام بورسیه‌های عربستان سعودی</h3><p>معلومات مکمل و توضیحات کامل در کانال تلگرام</p></div><i class="fas fa-arrow-left channel-arrow"></i></a>
-                <a href="https://t.me/ScholarVid" target="_blank" class="channel-card telegram"><div class="channel-icon"><i class="fab fa-telegram-plane"></i></div><div class="channel-info"><h3>کانال تلگرام اسکالر وید</h3><p>مرجع اطلاع‌رسانی بورسیه‌های عربی و بین‌المللی</p></div><i class="fas fa-arrow-left channel-arrow"></i></a>
-                <a href="https://facebook.com/scholarvid" target="_blank" class="channel-card facebook"><div class="channel-icon"><i class="fab fa-facebook-f"></i></div><div class="channel-info"><h3>صفحه فیسبوک</h3><p>اخبار، پوسترها و اطلاعیه‌های بورسیه‌ها در فیسبوک</p></div><i class="fas fa-arrow-left channel-arrow"></i></a>
-                <a href="https://whatsapp.com/channel/0029Va9BO6IGehEGlabElf3H" target="_blank" class="channel-card whatsapp"><div class="channel-icon"><i class="fab fa-whatsapp"></i></div><div class="channel-info"><h3>کانال واتساپ</h3><p>دریافت اطلاعیه‌های فوری بورسیه‌ها در واتساپ</p></div><i class="fas fa-arrow-left channel-arrow"></i></a>
-                <a href="https://www.youtube.com/@ScholarVid" target="_blank" class="channel-card youtube"><div class="channel-icon"><i class="fab fa-youtube"></i></div><div class="channel-info"><h3>کانال یوتیوب</h3><p>ویدیوهای آموزشی و راهنمای ثبت‌نام بورسیه‌ها</p></div><i class="fas fa-arrow-left channel-arrow"></i></a>
-                <a href="https://www.instagram.com/scholarvid/" target="_blank" class="channel-card instagram"><div class="channel-icon"><i class="fab fa-instagram"></i></div><div class="channel-info"><h3>پیج اینستاگرام</h3><p>اخبار تصویری و نشر پوسترهای بورسیه‌ها</p></div><i class="fas fa-arrow-left channel-arrow"></i></a>
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-share-alt"></i> کانال‌ها و صفحات ما</h2>
+                </div>
+
+                <div class="channels-grid">
+                    <a href="https://t.me/Saudi_Scholarships" target="_blank" rel="noopener noreferrer" class="channel-card telegram">
+                        <div class="channel-icon"><i class="fas fa-kaaba"></i></div>
+                        <div class="channel-info"><h3>تلگرام بورسیه‌های عربستان سعودی</h3><p>معلومات مکمل و توضیحات کامل در کانال تلگرام</p></div>
+                        <i class="fas fa-arrow-left channel-arrow"></i>
+                    </a>
+
+                    <a href="https://t.me/ScholarVid" target="_blank" rel="noopener noreferrer" class="channel-card telegram">
+                        <div class="channel-icon"><i class="fab fa-telegram-plane"></i></div>
+                        <div class="channel-info"><h3>کانال تلگرام اسکالر وید</h3><p>مرجع اطلاع‌رسانی بورسیه‌های عربی و بین‌المللی</p></div>
+                        <i class="fas fa-arrow-left channel-arrow"></i>
+                    </a>
+
+                    <a href="https://facebook.com/scholarvid" target="_blank" rel="noopener noreferrer" class="channel-card facebook">
+                        <div class="channel-icon"><i class="fab fa-facebook-f"></i></div>
+                        <div class="channel-info"><h3>صفحه فیسبوک</h3><p>اخبار، پوسترها و اطلاعیه‌های بورسیه‌ها در فیسبوک</p></div>
+                        <i class="fas fa-arrow-left channel-arrow"></i>
+                    </a>
+
+                    <a href="https://whatsapp.com/channel/0029Va9BO6IGehEGlabElf3H" target="_blank" rel="noopener noreferrer" class="channel-card whatsapp">
+                        <div class="channel-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div class="channel-info"><h3>کانال واتساپ</h3><p>دریافت اطلاعیه‌های فوری بورسیه‌ها در واتساپ</p></div>
+                        <i class="fas fa-arrow-left channel-arrow"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/@ScholarVid" target="_blank" rel="noopener noreferrer" class="channel-card youtube">
+                        <div class="channel-icon"><i class="fab fa-youtube"></i></div>
+                        <div class="channel-info"><h3>کانال یوتیوب</h3><p>ویدیوهای آموزشی و راهنمای ثبت‌نام بورسیه‌ها</p></div>
+                        <i class="fas fa-arrow-left channel-arrow"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/scholarvid/" target="_blank" rel="noopener noreferrer" class="channel-card instagram">
+                        <div class="channel-icon"><i class="fab fa-instagram"></i></div>
+                        <div class="channel-info"><h3>پیج اینستاگرام</h3><p>اخبار تصویری و نشر پوسترهای بورسیه‌ها</p></div>
+                        <i class="fas fa-arrow-left channel-arrow"></i>
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
@@ -155,15 +213,17 @@
                 <a href="index.html" class="logo"><i class="fas fa-graduation-cap logo-icon"></i><h1>اسکالر وید</h1></a>
                 <p>مرجع تخصصی بورسیه‌های تحصیلی جهان عرب و بین‌الملل. همراه شما در مسیر تحصیل رایگان.</p>
                 <div class="footer-social">
-                    <a href="https://t.me/Saudi_Scholarships" target="_blank" class="social-btn telegram"><i class="fab fa-telegram-plane"></i></a>
-                    <a href="https://t.me/ScholarVid" target="_blank" class="social-btn telegram"><i class="fas fa-bullhorn"></i></a>
-                    <a href="https://whatsapp.com/channel/0029Va9BO6IGehEGlabElf3H" target="_blank" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://facebook.com/scholarvid" target="_blank" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.youtube.com/@ScholarVid" target="_blank" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/scholarvid/" target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/Saudi_Scholarships" target="_blank" rel="noopener noreferrer" class="social-btn telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="https://t.me/ScholarVid" target="_blank" rel="noopener noreferrer" class="social-btn telegram"><i class="fas fa-bullhorn"></i></a>
+                    <a href="https://whatsapp.com/channel/0029Va9BO6IGehEGlabElf3H" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://facebook.com/scholarvid" target="_blank" rel="noopener noreferrer" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/@ScholarVid" target="_blank" rel="noopener noreferrer" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/scholarvid/" target="_blank" rel="noopener noreferrer" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom"><p>© ۲۰۲۳ - ۲۰۲۶ اسکالر وید | تمام حقوق محفوظ است.</p></div>
+            <div class="footer-bottom">
+                <p>© ۲۰۲۳ - ۲۰۲۶ اسکالر وید | تمام حقوق محفوظ است.</p>
+            </div>
         </div>
     </footer>
 
