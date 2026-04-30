@@ -1,6 +1,7 @@
 /* ========================================
    اسکالر وید - استایل‌های حرفه‌ای نسخه نهایی
    فونت: Vazirmatn | تم: تاریک/روشن کامل
+   با پس‌زمینه روشن غیر سفید (کرم ملایم)
    ======================================== */
 
 /* ========== متغیرهای CSS ========== */
@@ -10,14 +11,15 @@
     --primary-light: #3b82f6;
     --secondary: #7c3aed;
     --accent: #f59e0b;
-    --bg-body: #f8fafc;
+    /* پس‌زمینه روشن - کرم/بژ ملایم (نه سفید) */
+    --bg-body: #f7f5f0;
     --bg-card: #ffffff;
-    --bg-header: rgba(255, 255, 255, 0.95);
+    --bg-header: rgba(247, 245, 240, 0.95);
     --bg-input: #ffffff;
-    --bg-hover: #f1f5f9;
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #64748b;
+    --bg-hover: #efece5;
+    --text-primary: #1e293b;
+    --text-secondary: #334155;
+    --text-muted: #5b6e8c;
     --text-inverse: #ffffff;
     --border: #e2e8f0;
     --border-focus: #2563eb;
@@ -31,11 +33,12 @@
     --youtube: #ff0000;
     --instagram: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
-    --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
     --gradient-primary: linear-gradient(135deg, #2563eb, #7c3aed);
     --gradient-hero: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #334155 100%);
+    --gradient-heading: linear-gradient(135deg, #4f46e5, #7c3aed);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: all 0.5s ease;
     --radius: 12px;
@@ -362,6 +365,10 @@ ul { list-style: none; }
     font-size: 1.8rem;
     font-weight: 800;
     margin-bottom: var(--spacing-sm);
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 .deadline-badge {
     display: inline-block;
@@ -403,6 +410,7 @@ ul { list-style: none; }
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
+    color: #0f766e;
 }
 .detail-section ul {
     list-style: none;
@@ -433,7 +441,7 @@ ul { list-style: none; }
 /* ========== Features ========== */
 .features { 
     background: var(--bg-body); 
-    padding-top: 4.5rem; /* فاصله از بالا افزایش یافت */
+    padding-top: 4.5rem;
 }
 .features-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -456,7 +464,7 @@ ul { list-style: none; }
 }
 .feature-card h3 {
     font-size: 1.15rem; font-weight: 700; margin-bottom: var(--spacing-sm);
-    color: var(--text-primary);
+    color: #b45309;
 }
 .feature-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
 
@@ -467,7 +475,10 @@ ul { list-style: none; }
 }
 .about-content h2 {
     font-size: 1.8rem; font-weight: 800; margin-bottom: var(--spacing-md);
-    color: var(--text-primary);
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 .about-intro {
     font-size: 1.1rem; color: var(--text-secondary);
@@ -532,11 +543,17 @@ ul { list-style: none; }
     align-items: center; 
     justify-content: center; 
     gap: var(--spacing-sm);
-    color: var(--text-primary);
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
-
-.section-title i { color: var(--primary); }
-
+.section-title i {
+    color: #d97706;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+}
 .channels-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -900,7 +917,7 @@ ul { list-style: none; }
 }
 /* افزایش فاصله بالای بخش بورسیه‌ها */
 .scholarships {
-    padding-top: 2.5rem; /* فاصله از بالا */
+    padding-top: 2.5rem;
 }
 /* هم‌عرض کردن دکمه با کارت بورسیه */
 .scholarship-card .card-actions .btn {
@@ -959,7 +976,7 @@ ul { list-style: none; }
     gap: var(--spacing-sm);
     font-size: 1.3rem;
     margin-bottom: var(--spacing-md);
-    color: var(--primary);
+    color: #b45309;
     font-weight: 700;
 }
 .info-card ul {
