@@ -1038,3 +1038,293 @@ ul { list-style: none; }
         break-inside: avoid;
     }
 }
+/* ===== Scholarship Detail - Saudi / Turkey / Diyanet Shared ===== */
+.scholarship-detail {
+    padding: var(--spacing-3xl) 0;
+}
+
+.scholarship-detail .container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.detail-header {
+    text-align: center;
+    padding: var(--spacing-2xl);
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.detail-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(37,99,235,0.08), rgba(124,58,237,0.05));
+    pointer-events: none;
+}
+
+.detail-header > * {
+    position: relative;
+    z-index: 1;
+}
+
+.detail-header .country-flag-img {
+    width: 84px;
+    height: 58px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin: 0 auto var(--spacing-md);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+}
+
+.detail-header h2 {
+    font-size: clamp(1.5rem, 1.1rem + 1vw, 2.2rem);
+    font-weight: 800;
+    line-height: 1.35;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.deadline-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: var(--radius-full);
+    background: var(--gradient-gold);
+    color: #fff;
+    font-size: 0.88rem;
+    font-weight: 800;
+    box-shadow: 0 10px 24px rgba(245, 158, 11, 0.25);
+}
+
+.poster-container {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--border-card);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+}
+
+.poster-container:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+.poster-image {
+    width: 100%;
+    display: block;
+    transition: transform 0.45s ease;
+}
+
+.poster-container:hover .poster-image {
+    transform: scale(1.015);
+}
+
+.detail-info-grid,
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.info-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow);
+    transition: var(--transition-slow);
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.info-card:hover::before {
+    opacity: 1;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: rgba(37, 99, 235, 0.18);
+}
+
+.info-card h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+}
+
+.info-card h3 i {
+    color: var(--primary);
+}
+
+.info-card p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+.info-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info-card li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    border-bottom: 1px dashed var(--border-light);
+}
+
+.info-card li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.info-card li i {
+    margin-top: 4px;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.apply-box {
+    text-align: center;
+    padding: var(--spacing-2xl);
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.apply-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(37,99,235,0.05), rgba(124,58,237,0.04));
+    pointer-events: none;
+}
+
+.apply-box > * {
+    position: relative;
+    z-index: 1;
+}
+
+.apply-box .btn {
+    width: min(100%, 420px);
+    margin-inline: auto;
+}
+
+.apply-box p {
+    margin-top: var(--spacing-md);
+    color: var(--text-muted);
+    font-size: 0.92rem;
+}
+
+/* Card style for benefit/requirement lists */
+.detail-section {
+    background: transparent;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    margin-bottom: 0;
+}
+
+.detail-section > h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-primary);
+}
+
+.benefits-list,
+.requirements-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.benefits-list li,
+.requirements-list li {
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    padding: 14px 16px;
+    box-shadow: var(--shadow-sm);
+    color: var(--text-secondary);
+    line-height: 1.75;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.benefits-list li:hover,
+.requirements-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(37, 99, 235, 0.18);
+}
+
+.benefits-list li i,
+.requirements-list li i {
+    margin-top: 4px;
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.benefits-list li i.fa-check-circle {
+    color: var(--success);
+}
+
+@media (max-width: 768px) {
+    .detail-header {
+        padding: var(--spacing-xl);
+    }
+
+    .benefits-list,
+    .requirements-list {
+        grid-template-columns: 1fr;
+    }
+
+    .apply-box {
+        padding: var(--spacing-xl);
+    }
+
+    .detail-info-grid,
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
