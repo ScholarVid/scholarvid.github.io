@@ -1328,3 +1328,10 @@ ul { list-style: none; }
         grid-template-columns: 1fr;
     }
 }
+/* لپ‌تاپ و صفحه‌های بزرگتر */
+@media (min-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);  /* ۳ ستون مساوی */
+        gap: var(--spacing-xl);  /* فاصله افقی/عمودی بیشتر */
+    }
+}
