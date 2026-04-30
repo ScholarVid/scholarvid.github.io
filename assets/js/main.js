@@ -1,5 +1,5 @@
 /**
- * اسکالر وید - اسکریپت‌های اصلی (نسخه اصلی با لینک به ریپوزیتوری‌های جداگانه)
+ * اسکالر وید - اسکریپت‌های اصلی (نسخه اصلاح شده)
  */
 document.addEventListener('DOMContentLoaded', () => {
     initPreloader();
@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initBackToTop();
 });
+
+// تابع مخفی کردن preloader
+function initPreloader() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+        }, 500);
+    }
+}
 
 function initTheme() {
     const toggle = document.getElementById('themeToggle');
