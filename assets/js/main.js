@@ -1,5 +1,7 @@
+/**
+ * اسکالر وید - اسکریپت‌های اصلی (بدون preloader)
+ */
 document.addEventListener('DOMContentLoaded', () => {
-    initPreloader();
     initTheme();
     initMobileMenu();
     initSmoothScroll();
@@ -7,21 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     initBackToTop();
 });
 
-function initPreloader() {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-        setTimeout(() => {
-            preloader.classList.add('hidden');
-        }, 500);
-    }
-}
-
 function initTheme() {
     const toggle = document.getElementById('themeToggle');
     if (!toggle) return;
     const icon = toggle.querySelector('i');
-    const saved = localStorage.getItem('scholarvid-theme');
-    if (saved === 'dark') {
+    const savedTheme = localStorage.getItem('scholarvid-theme');
+    if (savedTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
         icon.className = 'fas fa-sun';
     }
@@ -60,14 +53,15 @@ function initMobileMenu() {
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            const hash = this.getAttribute('href');
-            if (hash === '#') return;
-            const target = document.querySelector(hash);
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            e.preventDefault();
+            const target = document.querySelector(targetId);
             if (target) {
-                e.preventDefault();
-                const offset = 70;
-                const pos = target.getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({ top: pos, behavior: 'smooth' });
+                const headerOffset = 70;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
             }
         });
     });
@@ -77,7 +71,7 @@ function initHeaderScroll() {
     const header = document.getElementById('header');
     if (!header) return;
     window.addEventListener('scroll', () => {
-        header.classList.toggle('scrolled', window.scrollY > 50);
+        header.classList.toggle('scrolled', window.pageYOffset > 50);
     });
 }
 
@@ -85,7 +79,7 @@ function initBackToTop() {
     const btn = document.getElementById('backToTop');
     if (!btn) return;
     window.addEventListener('scroll', () => {
-        btn.classList.toggle('visible', window.scrollY > 400);
+        btn.classList.toggle('visible', window.pageYOffset > 400);
     });
     btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
