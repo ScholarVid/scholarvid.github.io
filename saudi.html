@@ -53,7 +53,8 @@
                 <div class="detail-header">
                     <img src="https://flagcdn.com/w320/sa.png" alt="عربستان سعودی" class="country-flag-img">
                     <h2>بورسیه های تحصیلی رایگان عربستان سعودی از طریق وزارت تعلیم</h2>
-                    <span class="deadline-badge"><i class="fas fa-calendar-alt"></i> مهلت ثبت‌نام: 19 آپریل 2026 تا 31 می 2026</span>
+                    <!-- تغییر: آیکون و متن به حالت ختم شده (مثل ترکیه) -->
+                    <span class="deadline-badge" style="background: #dc2626; box-shadow: 0 6px 16px rgba(220,38,38,0.28);"><i class="fas fa-ban"></i> ختم شده (۳۱ می ۲۰۲۵)</span>
                 </div>
                 <div class="poster-container">
                     <picture>
@@ -111,11 +112,12 @@
                         <li><i class="fas fa-check"></i> تسلط به زبان عربی یا انگلیسی (دارندگان مدرک زبان اولویت دارند)</li>
                     </ul>
                 </div>
+                <!-- جعبه ثبت‌نام: تغییر به حالت ختم شده (دکمه غیرفعال) -->
                 <div class="apply-box">
-                    <a href="https://t.me/ScholarVid" target="_blank" class="btn btn-primary btn-lg">
-                        <i class="fab fa-telegram-plane"></i> ثبت‌نام و راهنمایی از طریق تلگرام
-                    </a>
-                    <p style="margin-top: var(--spacing-md);"><i class="fas fa-info-circle"></i> برای بررسی اسناد و ثبت‌نام رسمی با تیم اسکالر وید در ارتباط باشید.</p>
+                    <button class="btn btn-outline btn-lg" disabled style="opacity:0.7; cursor:default; background:var(--bg-card); border-color:var(--danger); color:var(--danger);">
+                        <i class="fas fa-ban"></i> این بورسیه ختم شده است
+                    </button>
+                    <p style="margin-top: var(--spacing-md);"><i class="fas fa-info-circle"></i> برای اطلاع از بورسیه‌های جدید به کانال‌های ما بپیوندید.</p>
                 </div>
             </div>
         </section>
