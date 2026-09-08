@@ -67,44 +67,45 @@
                 </div>
 
                 <div class="scholarships-grid">
-                    <!-- کارت بورسیه عراق (فعال) -->
-                    <article class="scholarship-card">
-                        <div class="card-flag">
-                            <img src="https://flagcdn.com/w320/iq.png" alt="عراق" class="country-flag-img">
-                            <span class="country-name">عراق</span>
-                            <span class="card-status active">فعال</span>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">بورسیه تحصیلی عراق</h3>
-                            <p class="card-excerpt">بورسیه کامل شامل ویزه، لیلیه، بیمه و غذا (برای علوم شرعی) در تمامی رشته‌ها برای لیسانس، ماستری و دکتورا</p>
-                            <div class="card-meta">
-                                <span class="meta-item"><i class="fas fa-calendar-alt"></i> مهلت: لیسانس (۵ سنبله) | ماستری/دکتورا (۵ سرطان)</span>
-                            </div>
-                            <div class="card-actions">
-                                <a href="iraq" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i> مشاهده و ثبت‌نام</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- بورسیه عربستان - ختم شده -->
+                    <!-- ======== بورسیه عربستان (اکنون فعال) ======== -->
                     <article class="scholarship-card">
                         <div class="card-flag">
                             <img src="https://flagcdn.com/w320/sa.png" alt="عربستان سعودی" class="country-flag-img">
                             <span class="country-name">عربستان سعودی</span>
-                            <span class="card-status expired">ختم شده</span>
+                            <span class="card-status active">فعال</span>  <!-- تغییر به active -->
                         </div>
                         <div class="card-content">
                             <h3 class="card-title">بورسیه‌های وزارت تعلیم عربستان</h3>
                             <p class="card-excerpt">بورسیه کامل تحصیلی برای مقاطع لیسانس، ماستری و دکتورا در رشته‌های علوم عصری و علوم شرعی</p>
                             <div class="card-meta">
-                                <span class="meta-item"><i class="fas fa-ban" style="color: var(--danger);"></i> ختم شده (۳۱ می ۲۰۲۶)</span>
+                                <span class="meta-item"><i class="fas fa-calendar-alt"></i> مهلت: ۱۶ سپتامبر تا ۶ اکتوبر ۲۰۲۶</span>  <!-- تاریخ جدید -->
                             </div>
                             <div class="card-actions">
-                                <a href="saudi" class="btn btn-outline btn-sm"><i class="fas fa-eye"></i> مشاهده جزئیات</a>
+                                <a href="saudi" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i> مشاهده و ثبت‌نام</a>  <!-- دکمه فعال -->
                             </div>
                         </div>
                     </article>
 
+                    <!-- ======== بورسیه عراق (اکنون ختم شده) ======== -->
+                    <article class="scholarship-card">
+                        <div class="card-flag">
+                            <img src="https://flagcdn.com/w320/iq.png" alt="عراق" class="country-flag-img">
+                            <span class="country-name">عراق</span>
+                            <span class="card-status expired">ختم شده</span>  <!-- تغییر به expired -->
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">بورسیه تحصیلی عراق</h3>
+                            <p class="card-excerpt">بورسیه کامل شامل ویزه، لیلیه، بیمه و غذا (برای علوم شرعی) در تمامی رشته‌ها برای لیسانس، ماستری و دکتورا</p>
+                            <div class="card-meta">
+                                <span class="meta-item"><i class="fas fa-ban" style="color: var(--danger);"></i> ختم شده</span>  <!-- حذف تاریخ و نمایش ختم شده -->
+                            </div>
+                            <div class="card-actions">
+                                <a href="iraq" class="btn btn-outline btn-sm"><i class="fas fa-eye"></i> مشاهده جزئیات</a>  <!-- دکمه غیرفعال -->
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- بورسیه ترکیه (ختم شده) -->
                     <article class="scholarship-card">
                         <div class="card-flag">
                             <img src="https://flagcdn.com/w320/tr.png" alt="ترکیه" class="country-flag-img">
@@ -123,6 +124,7 @@
                         </div>
                     </article>
 
+                    <!-- بورسیه دیانت (ختم شده) -->
                     <article class="scholarship-card">
                         <div class="card-flag">
                             <img src="https://flagcdn.com/w320/tr.png" alt="ترکیه - دیانت" class="country-flag-img">
