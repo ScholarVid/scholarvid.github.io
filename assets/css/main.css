@@ -104,3 +104,31 @@ h1,h2,h3{text-wrap:balance}
 .sticky-cta{position:fixed;inset:auto 0 0 0;padding:.7rem 4% calc(.7rem + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--sf) 92%,transparent);backdrop-filter:blur(12px);border-top:1px solid var(--bd);z-index:45;display:none;transition:transform .25s}
 .sticky-cta .btn{width:100%}.sticky-cta.hide{transform:translateY(110%)}
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr}.strip ul{grid-template-columns:repeat(2,1fr)}.strip li:nth-child(2){border-left:0}.strip li:nth-child(-n+2){border-bottom:1px solid var(--bd)}.sticky-cta{display:block}.scholarship-detail{padding-bottom:5rem}.back-to-top{bottom:5rem}}
+/* v3: Nova-inspired (floating island nav, blade hero, navy sections) with ScholarVid logo palette */
+:root{--ink:#031640;--pri:#0a7cb0;--pri-d:#08648d;--sun:#ffb62b;--bg:#f4f7fb;--danger:#dc0d3c;--r:20px}
+[data-theme=dark]{--bg:#050d1f;--sf:#0c1a36;--bd:#1b2d52;--pri:#38bdf8;--pri-d:#7dd3fc}
+.mark{background:linear-gradient(90deg,#ffb62b,#ffd877);-webkit-background-clip:text;background-clip:text;color:transparent}
+#header{top:.6rem;padding:0;background:none;border:0;backdrop-filter:none}
+.header-inner{height:60px;width:min(1120px,94%);margin:.6rem auto 0;padding:0 .7rem 0 1rem;border-radius:999px;background:color-mix(in srgb,var(--sf) 82%,transparent);backdrop-filter:blur(14px);border:1px solid var(--bd);box-shadow:0 8px 30px rgba(3,22,64,.14)}
+.mobile-menu{width:min(1120px,94%);margin:.4rem auto 0;border:1px solid var(--bd);border-radius:20px;background:var(--sf);padding:.6rem}
+.logo-img{width:38px;height:38px;border-radius:10px;object-fit:cover}
+.nav-link.active,.nav-link:hover{background:var(--ink);color:#fff}
+.hero{margin-top:-72px;padding-top:calc(72px + clamp(3rem,8vw,6rem));background:linear-gradient(160deg,#031640,#07276b);text-align:center;isolation:isolate}
+.hero::before{background:radial-gradient(50% 60% at 80% 0,rgba(10,180,230,.4),transparent 70%),linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/48px 48px}
+.hero::after{content:"";position:absolute;left:-8%;bottom:-8%;width:46vw;height:68%;background:linear-gradient(135deg,rgba(255,182,43,.6),transparent 72%);clip-path:polygon(0 30%,100% 0,100% 70%,0 100%);opacity:.75}
+.hero .container::after{content:"";position:absolute;right:-14%;top:-12%;width:40vw;height:60%;background:linear-gradient(200deg,rgba(10,180,230,.5),transparent 70%);clip-path:polygon(0 0,100% 28%,100% 100%,0 72%);z-index:-1}
+.hero-grid{display:block}.hero-text{max-width:840px;margin-inline:auto}.hero-lead{margin-inline:auto}.hero-cta{justify-content:center}
+.hero-kicker i{color:var(--sun)}
+.board{margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;align-items:center;border-radius:22px}
+.board h2{width:100%;font-size:.8rem;margin:0 0 .2rem}.board-row{background:rgba(255,255,255,.08);border-radius:999px;padding:.4rem .9rem}
+.board p{width:100%;margin:.3rem 0 0;border:0;padding:0}
+.strip{margin-top:0;padding-top:2rem}.strip ul{border-radius:22px}
+.section-title i{display:none}.section-title::before{content:"";width:9px;height:30px;border-radius:5px;background:linear-gradient(var(--sun),var(--pri))}
+.scholarship-card{border-radius:22px;border-top:0}.scholarship-card:has(.card-status.active){outline:2px solid var(--sun)}
+.card-flag{background:linear-gradient(135deg,#031640,#0b3a86);color:#fff;border:0}.country-name{color:#fff}
+.features-grid{gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:24px;overflow:hidden}
+.feature-card{border:0;border-radius:0;background:var(--sf)}.feature-icon{background:linear-gradient(135deg,#031640,#0b3a86)}
+.about-stats-card{background:linear-gradient(160deg,#031640,#07276b);border-radius:24px}
+.footer{background:#031640}.foot-cta{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between;text-align:right;padding-bottom:2.5rem;margin-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.14)}
+.foot-cta h2{font-size:clamp(1.5rem,3.4vw,2.4rem);color:#fff;line-height:1.5}.foot-cta .btn-primary{background:var(--sun);color:#1a1a1a}
+.footer .logo-img{width:44px;height:44px}
