@@ -82,3 +82,25 @@ section{padding:clamp(2.5rem,6vw,4.5rem) 0}.hero{padding:clamp(3rem,8vw,6rem) 0}
 .back-to-top{position:fixed;bottom:1.2rem;left:1.2rem;width:44px;height:44px;border-radius:50%;border:0;background:var(--pri);color:#fff;cursor:pointer;opacity:0;visibility:hidden;transition:.25s;z-index:40}.back-to-top.visible{opacity:1;visibility:visible}
 @media(max-width:860px){.nav-desktop,.social-links-header{display:none}.mobile-menu-btn{display:inline-block}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* v2 upgrades */
+h1,h2,h3{text-wrap:balance}
+.hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+.board{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:1.2rem;backdrop-filter:blur(8px)}
+.board h2{font-size:1rem;color:#cfe3f3;margin-bottom:.6rem;font-weight:700}
+.board-row{display:flex;align-items:center;gap:.8rem;padding:.7rem .6rem;border-radius:12px;color:#fff;transition:.2s}.board-row:hover{background:rgba(255,255,255,.1)}
+.board-row img{border-radius:4px}.board-row span{font-weight:700}
+.pill{margin-right:auto;font-style:normal;font-size:.78rem;font-weight:700;padding:.15rem .7rem;border-radius:999px}
+.pill.off{background:rgba(255,255,255,.12);color:#cfe3f3}.pill.on{background:var(--sun);color:#1a1a1a}
+.board p{margin:.6rem .6rem .1rem;font-size:.85rem;color:#cfe3f3;border-top:1px solid rgba(255,255,255,.14);padding-top:.7rem}
+.strip{padding:0;margin-top:-1.6rem;position:relative;z-index:2}
+.strip ul{display:grid;grid-template-columns:repeat(4,1fr);background:var(--sf);border:1px solid var(--bd);border-radius:16px;box-shadow:var(--sh);overflow:hidden}
+.strip li{padding:1.1rem .8rem;text-align:center;border-left:1px solid var(--bd)}.strip li:last-child{border:0}
+.strip b{display:block;font-size:1.7rem;line-height:1.3;color:var(--pri)}.strip span{font-size:.88rem;color:var(--mut)}
+.scholarships{padding-top:3rem}
+.scholarship-card{border-top:4px solid var(--ink)}.scholarship-card:has(.card-status.active){border-top-color:var(--sun)}
+.country-flag-img{width:52px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-bottom:1.5rem;box-shadow:var(--sh)}
+.facts div{background:var(--sf);padding:1rem 1.2rem;display:grid;gap:.15rem}.facts span{font-size:.82rem;color:var(--mut)}.facts b{font-size:1.02rem;line-height:1.6}
+.sticky-cta{position:fixed;inset:auto 0 0 0;padding:.7rem 4% calc(.7rem + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--sf) 92%,transparent);backdrop-filter:blur(12px);border-top:1px solid var(--bd);z-index:45;display:none;transition:transform .25s}
+.sticky-cta .btn{width:100%}.sticky-cta.hide{transform:translateY(110%)}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}.strip ul{grid-template-columns:repeat(2,1fr)}.strip li:nth-child(2){border-left:0}.strip li:nth-child(-n+2){border-bottom:1px solid var(--bd)}.sticky-cta{display:block}.scholarship-detail{padding-bottom:5rem}.back-to-top{bottom:5rem}}

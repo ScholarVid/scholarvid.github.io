@@ -12,3 +12,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   const n=$('.stat-number');
   if(n&&'IntersectionObserver'in window){const f=+n.dataset.count||0;new IntersectionObserver((e,o)=>{if(e[0].isIntersecting){let c=0;const t=setInterval(()=>{c=Math.min(f,c+1);n.textContent=c+'+';c>=f&&clearInterval(t)},150);o.disconnect()}},{threshold:.5}).observe(n)}
 });
+document.addEventListener('DOMContentLoaded',()=>{
+  const a=document.querySelector('.apply-box a.btn');if(!a)return;
+  const bar=document.createElement('div');bar.className='sticky-cta';
+  const c=a.cloneNode(true);c.classList.add('btn-primary');bar.appendChild(c);document.body.appendChild(bar);
+  if('IntersectionObserver'in window)new IntersectionObserver(e=>bar.classList.toggle('hide',e[0].isIntersecting)).observe(document.querySelector('.apply-box'));
+});
