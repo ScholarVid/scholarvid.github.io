@@ -140,5 +140,16 @@ h1,h2,h3{text-wrap:balance}
 .apply-box .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}.apply-box .btn-outline:hover{border-color:var(--sun);color:var(--sun)}
 .info-card li:nth-child(odd):hover,.info-card li:hover{background:color-mix(in srgb,var(--pri) 6%,transparent)}
 @media(min-width:960px){.scholarship-detail .container{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:1.2rem;align-items:start}
-.scholarship-detail .container>*{grid-column:1;margin:0!important}.detail-header,.facts,.poster-container{grid-column:1/-1}
+.scholarship-detail .container>*{grid-column:1;margin:0!important}.scholarship-detail .container>.detail-header,.scholarship-detail .container>.facts,.scholarship-detail .container>.poster-container{grid-column:1/-1}
 .apply-box{grid-column:2!important;grid-row:3/span 14;position:sticky;top:90px}.scholarship-detail .container:has(.poster-container) .apply-box{grid-row:4/span 14}}
+
+/* v5: registration flow */
+ol{list-style:none;padding:0}
+.apply-box h3{font-size:1.2rem}.apply-box .steps{display:grid;gap:.5rem;width:100%;text-align:right;counter-reset:a}
+.apply-box .steps li{counter-increment:a;display:flex;gap:.7rem;align-items:center;background:rgba(255,255,255,.08);border-radius:12px;padding:.55rem .8rem}
+.apply-box .steps li::before{content:counter(a,persian);display:grid;place-items:center;flex:none;width:28px;height:28px;border-radius:50%;background:var(--sun);color:#1a1a1a;font-weight:800}
+.apply-box .src a{text-decoration:underline;font-size:.85rem}
+.how{padding-block:3rem}.how-grid{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));counter-reset:s}
+.how-step{counter-increment:s;background:var(--sf);border:1px solid var(--bd);border-radius:20px;padding:1.4rem;position:relative}
+.how-step::before{content:counter(s,persian);display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#031640,#0b3a86);color:var(--sun);font-weight:800;font-size:1.1rem;margin-bottom:.8rem}
+.how-step h3{font-size:1.05rem;margin-bottom:.3rem}.how-step p{color:var(--mut);font-size:.93rem}
