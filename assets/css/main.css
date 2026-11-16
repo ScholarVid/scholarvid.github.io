@@ -132,3 +132,13 @@ h1,h2,h3{text-wrap:balance}
 .footer{background:#031640}.foot-cta{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;justify-content:space-between;text-align:right;padding-bottom:2.5rem;margin-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.14)}
 .foot-cta h2{font-size:clamp(1.5rem,3.4vw,2.4rem);color:#fff;line-height:1.5}.foot-cta .btn-primary{background:var(--sun);color:#1a1a1a}
 .footer .logo-img{width:44px;height:44px}
+/* v4: detail pages */
+.detail-header{background:linear-gradient(160deg,#031640,#07276b);color:#fff;border:0}.detail-header h2{color:#fff}
+.detail-header .deadline-badge{background:var(--sun);color:#1a1a1a}.deadline-badge i{color:inherit}
+.detail-header .deadline-badge:has(.fa-ban){background:rgba(255,255,255,.14);color:#fff}
+.info-card .dates li{flex-wrap:wrap;justify-content:space-between;gap:.2rem 1rem}.dates span{color:var(--pri);font-weight:700}
+.apply-box .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}.apply-box .btn-outline:hover{border-color:var(--sun);color:var(--sun)}
+.info-card li:nth-child(odd):hover,.info-card li:hover{background:color-mix(in srgb,var(--pri) 6%,transparent)}
+@media(min-width:960px){.scholarship-detail .container{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:1.2rem;align-items:start}
+.scholarship-detail .container>*{grid-column:1;margin:0!important}.detail-header,.facts,.poster-container{grid-column:1/-1}
+.apply-box{grid-column:2!important;grid-row:3/span 14;position:sticky;top:90px}.scholarship-detail .container:has(.poster-container) .apply-box{grid-row:4/span 14}}
